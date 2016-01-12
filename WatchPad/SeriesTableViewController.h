@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  SeriesTableViewController
 //  WatchPad
 //
 //  Created by Sven Schiffer on 12.1.16.
@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
+@interface SeriesTableViewController : UITableViewController
+
 
 
 @end
