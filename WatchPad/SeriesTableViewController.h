@@ -7,9 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Series.h"
 
-@interface SeriesTableViewController : UITableViewController
+@interface SeriesTableViewController : UIViewController <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating> {
 
+    NSMutableArray *contentList;
+    NSMutableArray *seriesSearchResultsList;
+    BOOL isSearching;
+}
+
+@property (strong, nonatomic) IBOutlet UITableView *seriesSearchResultsList;
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) IBOutlet UISearchDisplayController *searchBarDisplayController;
 
 
 @end
