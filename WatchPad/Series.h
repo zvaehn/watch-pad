@@ -6,17 +6,18 @@
 //  Copyright © 2016 Sven Schiffer. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface Series : NSMutableData
+@interface Series : NSObject <NSCoding>
 
-@property (strong, nonatomic) NSNumber *id;
-@property (strong, nonatomic) NSArray *episodes;
-@property (strong, nonatomic) NSString *name;
-@property (strong, nonatomic) NSNumber *avgRating;
-@property (strong, nonatomic) NSString *summary;
+@property (nonatomic, copy) NSNumber *id;
+@property (nonatomic, copy) NSArray *episodes;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSNumber *avgRating;
+@property (nonatomic, copy) NSString *summary;
+@property (nonatomic, copy) NSString *imageurl;
 //@property (strong, nonatomic) UIImage *image;
-@property (strong, nonatomic) NSString *imageurl;
+
++ (Series *)seriesWithName:(NSString *)name summary:(NSString *)summary avgRating:(NSNumber *)avgRating;
 
 @end

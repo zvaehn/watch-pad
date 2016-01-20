@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "Series.h"
+#import "SeriesMainTableViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +18,24 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    
+    NSArray *series = @[[Series seriesWithName:@"Family Guy"
+                                       summary:@"Family guy is the best comedy series on public tv ever made!"
+                                     avgRating:@4.5],
+                        [Series seriesWithName:@"Breaking Bad"
+                                       summary:@"Breaking bad is the best action thriller..."
+                                     avgRating:@5]];
+    
+    
+    UINavigationController *navigationController = (UINavigationController *)(self.window).rootViewController;
+    // note we want the first view controller (not the visibleViewController) in case
+    // we are being store from UIStateRestoration
+    //
+    SeriesMainTableViewController *viewController = (SeriesMainTableViewController *)navigationController.viewControllers[0];
+    
+    //viewController.series = series;
+    
     return YES;
 }
 
