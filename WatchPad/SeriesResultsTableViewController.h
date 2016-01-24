@@ -1,5 +1,5 @@
 //
-//  SeriesResultsTableViewController.h
+//  SeriesCollectionTableViewController.h
 //  WatchPad
 //
 //  Created by Sven Schiffer on 19.1.16.
@@ -8,7 +8,9 @@
 
 @import UIKit;
 
-extern NSString *const kCellIdentifier;
+@class Series;
+
+extern NSString *const bkCellIdentifier;
 
 @interface SeriesResultsTableViewController : UITableViewController
 

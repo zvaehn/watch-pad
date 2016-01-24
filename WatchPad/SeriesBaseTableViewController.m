@@ -9,8 +9,8 @@
 #import "SeriesBaseTableViewController.h"
 #import "Series.h"
 
-NSString *const kCellIdentifier = @"seriesTableCellMinified";
-NSString *const kTableCellNibName = @"SeriesTableCell";
+NSString *const kCellIdentifier = @"seriesResultsTableCell";
+NSString *const kTableCellNibName = @"SeriesResultsTableCell";
 
 @implementation SeriesBaseTableViewController
 

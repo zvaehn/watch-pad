@@ -7,9 +7,10 @@
 //
 
 #import "SeriesResultsTableViewController.h"
+#import "Series.h"
 
-NSString *const kCellIdentifier = @"cellID";
-NSString *const kTableCellNibName = @"SeriesTableCell";
+NSString *const bkCellIdentifier = @"seriesResultsTableCell";
+NSString *const bkTableCellNibName = @"SeriesResultsTableCell";
 
 @implementation SeriesResultsTableViewController
 
@@ -17,11 +18,12 @@ NSString *const kTableCellNibName = @"SeriesTableCell";
     [super viewDidLoad];
     
     // we use a nib which contains the cell's view and this class as the files owner
-    [self.tableView registerNib:[UINib nibWithNibName:kTableCellNibName bundle:nil] forCellReuseIdentifier:kCellIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:bkTableCellNibName bundle:nil] forCellReuseIdentifier:bkCellIdentifier];
 }
 
 - (void)configureCell:(UITableViewCell *)cell forSeries:(Series *)series {
-
+    cell.textLabel.text = series.name;
+    cell.detailTextLabel.text = series.summary;
 }
 
 @end

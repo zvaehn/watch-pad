@@ -117,7 +117,7 @@
         <!--Series-->
         <scene sceneID="Eyf-aY-vXi">
             <objects>
-                <tableViewController title="Series" id="ah6-ht-J1j" sceneMemberID="viewController">
+                <tableViewController title="Series" id="ah6-ht-J1j" customClass="SeriesCollectionTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="28" sectionFooterHeight="28" id="aPz-re-CkH">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
