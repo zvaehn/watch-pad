@@ -7,6 +7,7 @@
 //
 
 #import "SeriesMainTableViewController.h"
+#import "SeriesDetailViewController.h"
 #import "SeriesResultsTableController.h"
 #import "SeriesInterfaceConnection.h"
 #import "Series.h"
@@ -128,10 +129,11 @@
     Series *selectedSeries = (tableView == self.tableView) ?
     self.series[indexPath.row] : self.resultsTableController.filteredSeries[indexPath.row];
     
-/*    APLDetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"APLDetailViewController"];
-    detailViewController.product = selectedProduct; // hand off the current product to the detail view controller
+    SeriesDetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SeriesDetailViewController"];
+    detailViewController.title = selectedSeries.title;
+    detailViewController.series = selectedSeries; // hand off the current series to the detail view controller
     
-    [self.navigationController pushViewController:detailViewController animated:YES]; */
+    [self.navigationController pushViewController:detailViewController animated:YES];
     
     // note: should not be necessary but current iOS 8.0 bug (seed 4) requires it
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
@@ -177,11 +179,41 @@
                     for (NSDictionary *item in responseItems) {
                         NSDictionary *seriesData = [item objectForKey:@"show"];
                         
-                        NSString *name = [seriesData objectForKey:@"name"];
+                        NSNumber *id = [seriesData objectForKey:@"id"];
+                        NSString *title = [seriesData objectForKey:@"name"];
                         NSString *summary = [seriesData objectForKey:@"summary"];
                         NSNumber *rating = [[seriesData objectForKey:@"rating"] objectForKey:@"average"];
+                        NSNumber *updated = [seriesData objectForKey:@"updated"];
+                        NSString *network = @"unknown";
+                        NSString *image_url = @"http://tvmazecdn.com/images/no-img/no-img-portrait-text.png";
                         
-                        Series *currentSeries = [Series seriesWithName:name summary:summary avgRating:rating];
+                        NSRange range;
+                        NSString *summary_string = summary;
+                        while ((range = [summary_string rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound){
+                            summary_string = [summary_string stringByReplacingCharactersInRange:range withString:@""];
+                        }
+                        
+                        NSDictionary *images = [seriesData objectForKey:@"image"];
+                        NSDictionary *networkdata = [seriesData objectForKey:@"network"];
+                        
+                        if (![images isKindOfClass:[NSNull class]]) {
+                            if (![[images objectForKey:@"medium"] isKindOfClass:[NSNull class]]) {
+                                image_url = [images objectForKey:@"medium"]; // check for availability
+                            }
+                        }
+                        
+                        if (![networkdata isKindOfClass:[NSNull class]]) {
+                            if (![[networkdata objectForKey:@"name"] isKindOfClass:[NSNull class]]) {
+                                network = [networkdata objectForKey:@"name"]; 
+                            }
+                        }
+                        
+                        Series *currentSeries = [Series seriesWithId:id title:title];
+                        currentSeries.network = network;
+                        currentSeries.summary = summary_string;
+                        currentSeries.avgRating = ([rating isKindOfClass:[NSNull class]]) ? @0 : rating;
+                        currentSeries.updated = updated;
+                        currentSeries.cover_url = image_url;
                         
                         [resultsArray addObject:currentSeries];
                         tableController.filteredSeries = [NSArray arrayWithArray: resultsArray];

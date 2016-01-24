@@ -10,12 +10,10 @@
 
 @implementation Series
 
-+ (Series *)seriesWithName:(id)name summary:(id)summary avgRating:(id)avgRating {
++ (Series *)seriesWithId:(id)series_id title:(id)title {
     Series *newSeries = [[Series alloc] init];
-    newSeries.name = name;
-    newSeries.summary = summary;
-    newSeries.avgRating = avgRating;
-    
+    newSeries.series_id = series_id;
+    newSeries.title = title;
     return newSeries;
 }
 
@@ -23,15 +21,14 @@
 
 #pragma mark - Encoding/Decoding
 
-NSString *const NameKey = @"NameKey";
+NSString *const TitleKey = @"TitleKey";
 NSString *const SummaryKey = @"SummaryKey";
 NSString *const RatingKey = @"RatingKey";
-
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     if (self) {
-        _name = [aDecoder decodeObjectForKey:NameKey];
+        _title = [aDecoder decodeObjectForKey:TitleKey];
         _summary = [aDecoder decodeObjectForKey:SummaryKey];
         _avgRating = [aDecoder decodeObjectForKey:RatingKey];
     }
@@ -39,9 +36,9 @@ NSString *const RatingKey = @"RatingKey";
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:self.name forKey:NameKey];
+    [aCoder encodeObject:self.title forKey:TitleKey];
     [aCoder encodeObject:self.summary forKey:SummaryKey];
-    [aCoder encodeObject:self.avgRating forKey:SummaryKey];
+    [aCoder encodeObject:self.avgRating forKey:RatingKey];
 }
 
 @end

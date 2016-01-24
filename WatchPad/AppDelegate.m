@@ -20,12 +20,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     
-    NSArray *series = @[[Series seriesWithName:@"Family Guy"
-                                       summary:@"Family guy is the best comedy series on public tv ever made!"
-                                     avgRating:@4.5],
-                        [Series seriesWithName:@"Breaking Bad"
-                                       summary:@"Breaking bad is the best action thriller..."
-                                     avgRating:@5]];
+    NSArray *series = @[[Series seriesWithId:@84 title:@"Family Guy"],
+                        [Series seriesWithId:@0 title:@"Breaking Bad"]];
     
     
     UINavigationController *navigationController = (UINavigationController *)(self.window).rootViewController;
@@ -59,6 +55,18 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+
+
+#pragma mark - UIStateRestoration
+
+- (BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder {
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder {
+    return YES;
 }
 
 @end

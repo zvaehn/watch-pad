@@ -7,12 +7,13 @@
 //
 
 @import UIKit;
+#import "SeriesBaseTableViewController.h"
 
 @class Series;
 
 extern NSString *const akCellIdentifier;
 
-@interface SeriesCollectionTableViewController : UITableViewController
+@interface SeriesCollectionTableViewController : SeriesBaseTableViewController
 
 @property (nonatomic, strong) NSArray *series;
 

@@ -22,7 +22,7 @@ NSString *const bkTableCellNibName = @"SeriesResultsTableCell";
 }
 
 - (void)configureCell:(UITableViewCell *)cell forSeries:(Series *)series {
-    cell.textLabel.text = series.name;
+    cell.textLabel.text = series.title;
     cell.detailTextLabel.text = series.summary;
 }
 
