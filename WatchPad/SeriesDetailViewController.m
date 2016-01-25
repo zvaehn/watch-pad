@@ -32,6 +32,11 @@
     [formatter setDateFormat:@"dd.MM.yyyy"];
     NSDate *updated = [NSDate dateWithTimeIntervalSince1970: [self.series.updated doubleValue]];
     
+    UIBarButtonItem *add_button = [[UIBarButtonItem alloc] init];
+    add_button.title = @"Add";
+    add_button.style = UIBarButtonItemStyleDone;
+    self.navigationItem.rightBarButtonItem = add_button;
+    
     self.title = self.series.title;
 
     self.title_label.text = self.series.title;
@@ -41,6 +46,10 @@
     self.updated_label.text = [formatter stringFromDate:updated];
     self.summary_label.text = self.series.summary;
     self.cover.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.series.cover_url]]];
+}
+
+- (void)setRightBarButtonItem:(UIBarButtonItem *)rightBarButtonItem {
+    self.rightBarButtonItem = rightBarButtonItem;
 }
 
 #pragma mark - UIStateRestoration
