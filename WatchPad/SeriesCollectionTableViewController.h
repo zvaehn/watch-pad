@@ -8,15 +8,18 @@
 
 @import UIKit;
 #import "SeriesBaseTableViewController.h"
+#import "SeriesCollectionTableViewCell.h"
+#import "SeriesManager.h"
 
 @class Series;
 
 extern NSString *const akCellIdentifier;
 
-@interface SeriesCollectionTableViewController : SeriesBaseTableViewController
+@interface SeriesCollectionTableViewController : UITableViewController
 
 @property (nonatomic, strong) NSArray *series;
+@property (nonatomic, strong) SeriesManager *seriesManager;
 
-- (void)configureCell:(UITableViewCell *)cell forSeries:(Series *)series;
+- (void)configureCell:(SeriesCollectionTableViewCell *)cell forSeries:(Series *)series;
 
 @end

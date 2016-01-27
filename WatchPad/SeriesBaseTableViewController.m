@@ -9,8 +9,8 @@
 #import "SeriesBaseTableViewController.h"
 #import "Series.h"
 
-NSString *const kCellIdentifier = @"seriesCollectionTableCell";
-NSString *const kTableCellNibName = @"SeriesCollectionTableCell";
+NSString *const kCellIdentifier = @"seriesResultsTableCell";
+NSString *const kTableCellNibName = @"SeriesResultsTableCell";
 
 @implementation SeriesBaseTableViewController
 
@@ -24,13 +24,6 @@ NSString *const kTableCellNibName = @"SeriesCollectionTableCell";
 - (void)configureCell:(UITableViewCell *)cell forSeries:(Series *)series {
     cell.textLabel.text = series.title;
     cell.detailTextLabel.text = series.summary;
-
-    
-/*  UILabel *title = [self.view viewWithTag:0];
-    UILabel *summary = [self.view viewWithTag:1];
-    
-    title.text = series.name;
-    summary.text = series.summary;*/
 }
 
 @end

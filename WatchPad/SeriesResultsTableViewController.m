@@ -18,7 +18,9 @@ NSString *const bkTableCellNibName = @"SeriesResultsTableCell";
     [super viewDidLoad];
     
     // we use a nib which contains the cell's view and this class as the files owner
-    [self.tableView registerNib:[UINib nibWithNibName:bkTableCellNibName bundle:nil] forCellReuseIdentifier:bkCellIdentifier];
+/*    [self.tableView registerNib:[UINib nibWithNibName:bkTableCellNibName bundle:nil] forCellReuseIdentifier:bkCellIdentifier];*/
+    
+    
 }
 
 - (void)configureCell:(UITableViewCell *)cell forSeries:(Series *)series {

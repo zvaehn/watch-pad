@@ -8,6 +8,7 @@
 
 #import "SeriesDetailViewController.h"
 #import "Series.h"
+#import "SeriesManager.h"
 
 @interface SeriesDetailViewController ()
 
@@ -37,6 +38,9 @@
     add_button.style = UIBarButtonItemStyleDone;
     self.navigationItem.rightBarButtonItem = add_button;
     
+    [add_button setTarget:self];
+    [add_button setAction:@selector(addSeriesToCollection)];
+    
     self.title = self.series.title;
 
     self.title_label.text = self.series.title;
@@ -46,6 +50,11 @@
     self.updated_label.text = [formatter stringFromDate:updated];
     self.summary_label.text = self.series.summary;
     self.cover.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.series.cover_url]]];
+}
+
+- (void) addSeriesToCollection {
+    SeriesManager *seriesManager = [[SeriesManager alloc] init];
+    [seriesManager addSeries:self.series];
 }
 
 - (void)setRightBarButtonItem:(UIBarButtonItem *)rightBarButtonItem {

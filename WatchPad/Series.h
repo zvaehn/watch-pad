@@ -8,7 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Series : NSObject <NSCoding>
+@interface Series : NSObject <NSCoding> {
+    NSNumber *series_id;
+    NSString *title;
+    NSNumber *avgRating;
+    NSString *summary;
+    NSString *imageurl;
+    NSString *network;
+    NSNumber *updated;
+    NSString *cover_url;
+    NSMutableArray *seasons;
+}
 
 @property (nonatomic, copy) NSNumber *series_id;
 @property (nonatomic, copy) NSString *title;

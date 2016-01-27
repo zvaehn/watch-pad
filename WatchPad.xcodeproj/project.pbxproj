@@ -17,6 +17,8 @@
 		263613D21C55082D001BACB3 /* SeriesResultsTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 263613D11C55082D001BACB3 /* SeriesResultsTableController.m */; };
 		263613D91C55161B001BACB3 /* SeriesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 263613D81C55161B001BACB3 /* SeriesDetailViewController.m */; };
 		263613DC1C5518AA001BACB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 263613DA1C5518AA001BACB3 /* Main.storyboard */; };
+		263613DF1C593EA9001BACB3 /* SeriesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 263613DE1C593EA9001BACB3 /* SeriesManager.m */; };
+		263613E21C595BAA001BACB3 /* SeriesCollectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 263613E11C595BAA001BACB3 /* SeriesCollectionTableViewCell.m */; };
 		2648C4631C45055B00FF6AA1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2648C4621C45055B00FF6AA1 /* main.m */; };
 		2648C4661C45055B00FF6AA1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2648C4651C45055B00FF6AA1 /* AppDelegate.m */; };
 		2648C4711C45055B00FF6AA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2648C4701C45055B00FF6AA1 /* Assets.xcassets */; };
@@ -47,6 +49,10 @@
 		263613D71C55161B001BACB3 /* SeriesDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeriesDetailViewController.h; sourceTree = "<group>"; };
 		263613D81C55161B001BACB3 /* SeriesDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeriesDetailViewController.m; sourceTree = "<group>"; };
 		263613DB1C5518AA001BACB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		263613DD1C593EA9001BACB3 /* SeriesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeriesManager.h; sourceTree = "<group>"; };
+		263613DE1C593EA9001BACB3 /* SeriesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeriesManager.m; sourceTree = "<group>"; };
+		263613E01C595BAA001BACB3 /* SeriesCollectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeriesCollectionTableViewCell.h; sourceTree = "<group>"; };
+		263613E11C595BAA001BACB3 /* SeriesCollectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeriesCollectionTableViewCell.m; sourceTree = "<group>"; };
 		2648C45E1C45055B00FF6AA1 /* WatchPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2648C4621C45055B00FF6AA1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2648C4641C45055B00FF6AA1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -167,6 +173,8 @@
 			children = (
 				2648C4811C451DD000FF6AA1 /* Series.h */,
 				2648C4821C451DD000FF6AA1 /* Series.m */,
+				263613DD1C593EA9001BACB3 /* SeriesManager.h */,
+				263613DE1C593EA9001BACB3 /* SeriesManager.m */,
 				260940691C4E834C004A40AF /* SeriesBaseTableViewController.h */,
 				2609406A1C4E834C004A40AF /* SeriesBaseTableViewController.m */,
 				2609406C1C4E8589004A40AF /* SeriesMainTableViewController.h */,
@@ -179,6 +187,8 @@
 				263613D11C55082D001BACB3 /* SeriesResultsTableController.m */,
 				263613D71C55161B001BACB3 /* SeriesDetailViewController.h */,
 				263613D81C55161B001BACB3 /* SeriesDetailViewController.m */,
+				263613E01C595BAA001BACB3 /* SeriesCollectionTableViewCell.h */,
+				263613E11C595BAA001BACB3 /* SeriesCollectionTableViewCell.m */,
 			);
 			name = Series;
 			sourceTree = "<group>";
@@ -319,8 +329,10 @@
 				2648C4661C45055B00FF6AA1 /* AppDelegate.m in Sources */,
 				2648C4831C451DD000FF6AA1 /* Series.m in Sources */,
 				2648C4801C45184300FF6AA1 /* TabBarController.m in Sources */,
+				263613E21C595BAA001BACB3 /* SeriesCollectionTableViewCell.m in Sources */,
 				2609407A1C4FAFC6004A40AF /* SeriesCollectionTableViewController.m in Sources */,
 				2648C47C1C45137100FF6AA1 /* EpisodesTableViewController.m in Sources */,
+				263613DF1C593EA9001BACB3 /* SeriesManager.m in Sources */,
 				2609406E1C4E8589004A40AF /* SeriesMainTableViewController.m in Sources */,
 				263613D21C55082D001BACB3 /* SeriesResultsTableController.m in Sources */,
 				26C80A2F1C46A05C00080C42 /* SeasonTableTableViewController.m in Sources */,

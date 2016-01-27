@@ -30,7 +30,7 @@
     //
     SeriesMainTableViewController *viewController = (SeriesMainTableViewController *)navigationController.viewControllers[0];
     
-//    viewController.series = series;
+    //viewController.series = series;
     
     return YES;
 }

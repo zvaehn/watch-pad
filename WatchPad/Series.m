@@ -17,55 +17,42 @@
     return newSeries;
 }
 
-
-
 #pragma mark - Encoding/Decoding
 
-NSString *const TitleKey = @"TitleKey";
-NSString *const SummaryKey = @"SummaryKey";
-NSString *const RatingKey = @"RatingKey";
+NSString *const SeriesIdKey = @"SeriesIdKey";
+NSString *const SeriesTitleKey = @"SeriesTitleKey";
+NSString *const SeriesRatingKey = @"SeriesRatingKey";
+NSString *const SeriesSummaryKey = @"SeriesSummaryKey";
+NSString *const SeriesNetworkKey = @"SeriesNetworkKey";
+NSString *const SeriesUpdatedKey = @"SeriesUpdatedKey";
+NSString *const SeriesCoverUrlKey = @"SeriesCoverUrlKey";
+NSString *const SeriesSeasonsKey = @"SeriesSeasonsKey";
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     if (self) {
-        _title = [aDecoder decodeObjectForKey:TitleKey];
-        _summary = [aDecoder decodeObjectForKey:SummaryKey];
-        _avgRating = [aDecoder decodeObjectForKey:RatingKey];
+        _series_id = [aDecoder decodeObjectForKey:SeriesIdKey];
+        _title = [aDecoder decodeObjectForKey:SeriesTitleKey];
+        _avgRating = [aDecoder decodeObjectForKey:SeriesRatingKey];
+        _summary = [aDecoder decodeObjectForKey:SeriesSummaryKey];
+        _network = [aDecoder decodeObjectForKey:SeriesNetworkKey];
+        _updated = [aDecoder decodeObjectForKey:SeriesUpdatedKey];
+        _cover_url = [aDecoder decodeObjectForKey:SeriesCoverUrlKey];
+        _seasons = [aDecoder decodeObjectForKey:SeriesSeasonsKey];
     }
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:self.title forKey:TitleKey];
-    [aCoder encodeObject:self.summary forKey:SummaryKey];
-    [aCoder encodeObject:self.avgRating forKey:RatingKey];
+    [aCoder encodeObject:self.series_id forKey:SeriesIdKey];
+    [aCoder encodeObject:self.title forKey:SeriesTitleKey];
+    [aCoder encodeObject:self.avgRating forKey:SeriesRatingKey];
+    [aCoder encodeObject:self.summary forKey:SeriesSummaryKey];
+    [aCoder encodeObject:self.network forKey:SeriesNetworkKey];
+    [aCoder encodeObject:self.updated forKey:SeriesUpdatedKey];
+    [aCoder encodeObject:self.cover_url forKey:SeriesCoverUrlKey];
+    [aCoder encodeObject:self.seasons forKey:SeriesSeasonsKey];
 }
 
 @end
-
-/*- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        self.name = @"Family Guy";
-        self.episodes = @[];
-        self.avgRating = 0;
-        self.summary = @"The show follows PETER GRIFFIN the endearingly ignorant dad, and his hilariously offbeat family of...";
-        self.imageurl = @"http://tvmazecdn.com/uploads/images/medium_portrait/0/641.jpg";
-    }
-    return self;
-}*/
-
-/*
- NSString *dataUrl = @"http://api.tvmaze.com/search/shows?q=family";
- NSURL *url = [NSURL URLWithString:dataUrl];
- 
- NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
- NSString *res = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
- NSLog(@"%@", res);
- }];
- 
- [downloadTask resume];
-
- */
 

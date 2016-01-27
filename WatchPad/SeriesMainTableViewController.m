@@ -112,7 +112,12 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = (UITableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:kCellIdentifier forIndexPath:indexPath];
+//    UITableViewCell *cell = (UITableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:kCellIdentifier forIndexPath:indexPath];
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:kCellIdentifier];
+    }
     
     Series *series = self.series[indexPath.row];
     [self configureCell:cell forSeries:series];
@@ -187,6 +192,7 @@
                         NSString *network = @"unknown";
                         NSString *image_url = @"http://tvmazecdn.com/images/no-img/no-img-portrait-text.png";
                         
+                        // Remove HTML Tags
                         NSRange range;
                         NSString *summary_string = summary;
                         while ((range = [summary_string rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound){
