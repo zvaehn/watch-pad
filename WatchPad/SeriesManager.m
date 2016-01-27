@@ -32,12 +32,10 @@ NSString *const SeriesPreferencesKey = @"SERIES";
 }
 
 - (void)addSeries:(Series *)aSeries {
-    [self.seriesArray addObject:aSeries];
+    [self.seriesArray insertObject:aSeries atIndex:0];
     
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.seriesArray];
     [[NSUserDefaults standardUserDefaults] setObject:data forKey:SeriesPreferencesKey];
-    
-    NSLog(@"series collection count: %lu", [self.seriesArray count]);
 }
 
 - (NSMutableArray *) reloadData {
