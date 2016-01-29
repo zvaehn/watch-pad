@@ -7,8 +7,11 @@
 //
 
 #import "SeriesDetailViewController.h"
+#import "SeriesCollectionTableViewController.h"
 #import "Series.h"
+#import "Episode.h"
 #import "SeriesManager.h"
+#import "AFURLSessionManager.h"
 
 @interface SeriesDetailViewController ()
 
@@ -50,11 +53,110 @@
     self.updated_label.text = [formatter stringFromDate:updated];
     self.summary_label.text = self.series.summary;
     self.cover.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.series.cover_url]]];
+    
+    
+    // Collect Episode information
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSString *urlString = [NSString stringWithFormat: @"http://api.tvmaze.com/shows/%@/episodes", self.series.series_id];
+    NSURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:urlString parameters:nil error:nil];
+    
+    NSURLSessionDataTask *episodesTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", error);
+        }
+        else {
+            NSDictionary *responseCode = responseObject;
+            
+            if([responseObject valueForKey:@"status"] == nil) {
+                NSLog(@"an error occured: %@", [responseObject valueForKey:@"message"]);
+            }
+            else {
+                NSArray *responseItems = responseObject;
+                NSMutableDictionary *seasons = [[NSMutableDictionary alloc] init];
+                
+                for (NSDictionary *episode in responseItems) {
+                    
+                    NSNumber *episode_id = [episode objectForKey:@"id"];
+                    NSNumber *season = [episode objectForKey:@"season"];
+                    NSNumber *number = [episode objectForKey:@"number"];
+                    NSString *title = [episode objectForKey:@"name"];
+                    NSString *summary = [episode objectForKey:@"summary"];
+                        
+                    // Remove HTML Tags
+                    NSRange range;
+                    NSString *summary_string = summary;
+                    while ((range = [summary_string rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound) {
+                        summary_string = [summary_string stringByReplacingCharactersInRange:range withString:@""];
+                    }
+                    
+                    Episode *currentEpisode = [Episode episodeWithId:episode_id title:title];
+                    currentEpisode.season = season;
+                    currentEpisode.number = number;
+                    currentEpisode.summary = summary_string;
+                    
+                    if ([seasons objectForKey:season] == nil) {
+                        //NSLog(@"season %@ #1 time", season);
+                        // Array to store all episodes for one season
+                        NSMutableArray *episodesForSeason = [[NSMutableArray alloc] init];
+                        [episodesForSeason addObject:currentEpisode];
+                        
+                        // Add the episodes array to the seasons dictionary episode_number = array_of_episodes
+                        [seasons setObject:episodesForSeason forKey:season];
+                    }
+                    else {
+                        //NSLog(@"season %@ already exists", season);
+                        NSMutableArray *currentSeason = [seasons objectForKey:currentEpisode.season];
+                        [currentSeason addObject:currentEpisode];
+                    }
+                }
+                
+                // Add seasons (and it's episodes to the current series)
+                for(NSNumber *season_number in seasons) {
+                    unsigned long episode_count = [[seasons objectForKey:season_number] count];
+                    NSLog(@"season: %@ has %lu episodes", season_number, episode_count);
+            
+                    [self.series.seasons setObject:[seasons objectForKey:season_number] forKey:season_number];
+                    
+//                    [self.series addSeasonWithEpisodes:season_number episodes:[seasons objectForKey:season_number]];
+                }
+                
+                NSMutableDictionary *self_series_seasons = self.series.seasons;
+                
+                NSMutableDictionary *self_series_seasons2 = [NSMutableDictionary dictionaryWithDictionary: self.series.seasons];
+                
+                NSMutableDictionary *dict_test = @{@1: @"season 1", @2: @"season 2"};
+                NSMutableDictionary *dict_test_copy = dict_test;
+               
+                
+                
+                // DEBUGGING
+                for(NSNumber *season_number in seasons) {
+                    NSMutableArray *ep_arr = [seasons objectForKey:season_number];
+                    for (Episode *ep_current in ep_arr) {
+                        NSLog(@"%@", ep_current.title);
+                    }
+                }
+            
+                NSMutableArray *ep_arr = [self.series.seasons objectForKey:@3];
+                
+                NSLog(@"Season 3 has %lu episodes", (unsigned long)[ep_arr count]);
+                Episode *ep = [ep_arr objectAtIndex:2];
+                Episode *ep2 = [ep_arr objectAtIndex:3];
+                NSLog(@"season 3, episode 3 title: %@", ep.title);
+            }
+        }
+    }];
+    
+    [episodesTask resume];
 }
 
 - (void) addSeriesToCollection {
     SeriesManager *seriesManager = [[SeriesManager alloc] init];
     [seriesManager addSeries:self.series];
+    
+    // ToDo: push SeriesCollectionView
 }
 
 - (void)setRightBarButtonItem:(UIBarButtonItem *)rightBarButtonItem {

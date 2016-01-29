@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Episode.h"
 
 @interface Series : NSObject <NSCoding> {
     NSNumber *series_id;
@@ -17,7 +18,7 @@
     NSString *network;
     NSNumber *updated;
     NSString *cover_url;
-    NSMutableArray *seasons;
+    NSMutableDictionary *seasons;
 }
 
 @property (nonatomic, copy) NSNumber *series_id;
@@ -28,9 +29,15 @@
 @property (nonatomic, copy) NSString *network;
 @property (nonatomic, copy) NSNumber *updated;
 @property (nonatomic, copy) NSString *cover_url;
-@property (nonatomic, copy) NSMutableArray *seasons;
+@property (nonatomic, retain) NSMutableDictionary *seasons;
 //@property (strong, nonatomic) UIImage *image;
 
 + (Series *)seriesWithId:(NSNumber *)series_id title:(NSString *)title;
+- (void)addSeasonWithEpisodes:(NSNumber *)season_id episodes:(NSMutableArray *)episodes;
+- (int)seasonsCount;
+- (NSMutableArray *)episodesInSeason:(NSNumber *)season_id;
+
+//- (Episode *)seriesWithId:(NSNumber *)series_id title:(NSString *)title;
+
 
 @end

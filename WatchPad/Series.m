@@ -17,6 +17,18 @@
     return newSeries;
 }
 
+- (void)addSeasonWithEpisodes:(NSNumber *)season_id episodes:(NSMutableArray *)episodes {
+    [self.seasons setObject:episodes forKey:season_id];
+}
+
+- (NSMutableArray *)episodesInSeason:(NSNumber *)season_id {
+    return [self.seasons objectForKey:season_id];
+}
+
+- (int)seasonsCount {
+    return (int) [[self.seasons allKeys] count];
+}
+
 #pragma mark - Encoding/Decoding
 
 NSString *const SeriesIdKey = @"SeriesIdKey";
@@ -53,6 +65,7 @@ NSString *const SeriesSeasonsKey = @"SeriesSeasonsKey";
     [aCoder encodeObject:self.cover_url forKey:SeriesCoverUrlKey];
     [aCoder encodeObject:self.seasons forKey:SeriesSeasonsKey];
 }
+
 
 @end
 

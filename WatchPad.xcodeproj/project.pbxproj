@@ -19,6 +19,7 @@
 		263613DC1C5518AA001BACB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 263613DA1C5518AA001BACB3 /* Main.storyboard */; };
 		263613DF1C593EA9001BACB3 /* SeriesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 263613DE1C593EA9001BACB3 /* SeriesManager.m */; };
 		263613E21C595BAA001BACB3 /* SeriesCollectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 263613E11C595BAA001BACB3 /* SeriesCollectionTableViewCell.m */; };
+		263613E51C5A2607001BACB3 /* Episode.m in Sources */ = {isa = PBXBuildFile; fileRef = 263613E41C5A2607001BACB3 /* Episode.m */; };
 		2648C4631C45055B00FF6AA1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2648C4621C45055B00FF6AA1 /* main.m */; };
 		2648C4661C45055B00FF6AA1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2648C4651C45055B00FF6AA1 /* AppDelegate.m */; };
 		2648C4711C45055B00FF6AA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2648C4701C45055B00FF6AA1 /* Assets.xcassets */; };
@@ -53,6 +54,8 @@
 		263613DE1C593EA9001BACB3 /* SeriesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeriesManager.m; sourceTree = "<group>"; };
 		263613E01C595BAA001BACB3 /* SeriesCollectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeriesCollectionTableViewCell.h; sourceTree = "<group>"; };
 		263613E11C595BAA001BACB3 /* SeriesCollectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeriesCollectionTableViewCell.m; sourceTree = "<group>"; };
+		263613E31C5A2607001BACB3 /* Episode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Episode.h; sourceTree = "<group>"; };
+		263613E41C5A2607001BACB3 /* Episode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Episode.m; sourceTree = "<group>"; };
 		2648C45E1C45055B00FF6AA1 /* WatchPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2648C4621C45055B00FF6AA1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2648C4641C45055B00FF6AA1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -105,6 +108,8 @@
 		260940751C4E90E0004A40AF /* Episodes */ = {
 			isa = PBXGroup;
 			children = (
+				263613E31C5A2607001BACB3 /* Episode.h */,
+				263613E41C5A2607001BACB3 /* Episode.m */,
 				2648C47D1C45138900FF6AA1 /* EpisodesTableViewController.h */,
 				2648C47B1C45137100FF6AA1 /* EpisodesTableViewController.m */,
 			);
@@ -326,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				263613D91C55161B001BACB3 /* SeriesDetailViewController.m in Sources */,
+				263613E51C5A2607001BACB3 /* Episode.m in Sources */,
 				2648C4661C45055B00FF6AA1 /* AppDelegate.m in Sources */,
 				2648C4831C451DD000FF6AA1 /* Series.m in Sources */,
 				2648C4801C45184300FF6AA1 /* TabBarController.m in Sources */,

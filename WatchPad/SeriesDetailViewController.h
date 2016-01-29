@@ -12,6 +12,6 @@
 
 @interface SeriesDetailViewController : UIViewController
 
-@property (nonatomic, strong) Series *series;
+@property Series *series;
 
 @end
