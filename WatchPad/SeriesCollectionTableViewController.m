@@ -67,7 +67,7 @@ NSString *const akTableCellNibName = @"SeriesCollectionTableCell";
     cell.title_label.text = series.title;
     cell.summary_label.text = series.summary;
     cell.watch_progress.progress = 0;
-    cell.cover_image.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:series.cover_url]]];
+    cell.cover_image.image = series.cover;
 }
 
 @end

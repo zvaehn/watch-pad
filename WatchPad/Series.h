@@ -18,6 +18,7 @@
     NSString *network;
     NSNumber *updated;
     NSString *cover_url;
+    UIImage *cover;
     NSMutableDictionary *seasons;
 }
 
@@ -28,9 +29,9 @@
 @property (nonatomic, copy) NSString *imageurl;
 @property (nonatomic, copy) NSString *network;
 @property (nonatomic, copy) NSNumber *updated;
+@property (nonatomic, copy) UIImage *cover;
 @property (nonatomic, copy) NSString *cover_url;
-@property (nonatomic, retain) NSMutableDictionary *seasons;
-//@property (strong, nonatomic) UIImage *image;
+@property (nonatomic, readwrite) NSMutableDictionary *seasons;
 
 + (Series *)seriesWithId:(NSNumber *)series_id title:(NSString *)title;
 - (void)addSeasonWithEpisodes:(NSNumber *)season_id episodes:(NSMutableArray *)episodes;

@@ -54,6 +54,8 @@
     self.summary_label.text = self.series.summary;
     self.cover.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.series.cover_url]]];
     
+    self.series.seasons = [[NSMutableDictionary alloc] init];
+    self.series.cover = self.cover.image;
     
     // Collect Episode information
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -114,37 +116,14 @@
                 
                 // Add seasons (and it's episodes to the current series)
                 for(NSNumber *season_number in seasons) {
-                    unsigned long episode_count = [[seasons objectForKey:season_number] count];
-                    NSLog(@"season: %@ has %lu episodes", season_number, episode_count);
+                    //unsigned long episode_count = [[seasons objectForKey:season_number] count];
+                    //NSLog(@"season: %@ has %lu episodes", season_number, episode_count);
             
-                    [self.series.seasons setObject:[seasons objectForKey:season_number] forKey:season_number];
-                    
-//                    [self.series addSeasonWithEpisodes:season_number episodes:[seasons objectForKey:season_number]];
+                    NSMutableArray *current_season = [seasons objectForKey:season_number];
+                    [self.series addSeasonWithEpisodes:season_number episodes:current_season];
                 }
                 
                 NSMutableDictionary *self_series_seasons = self.series.seasons;
-                
-                NSMutableDictionary *self_series_seasons2 = [NSMutableDictionary dictionaryWithDictionary: self.series.seasons];
-                
-                NSMutableDictionary *dict_test = @{@1: @"season 1", @2: @"season 2"};
-                NSMutableDictionary *dict_test_copy = dict_test;
-               
-                
-                
-                // DEBUGGING
-                for(NSNumber *season_number in seasons) {
-                    NSMutableArray *ep_arr = [seasons objectForKey:season_number];
-                    for (Episode *ep_current in ep_arr) {
-                        NSLog(@"%@", ep_current.title);
-                    }
-                }
-            
-                NSMutableArray *ep_arr = [self.series.seasons objectForKey:@3];
-                
-                NSLog(@"Season 3 has %lu episodes", (unsigned long)[ep_arr count]);
-                Episode *ep = [ep_arr objectAtIndex:2];
-                Episode *ep2 = [ep_arr objectAtIndex:3];
-                NSLog(@"season 3, episode 3 title: %@", ep.title);
             }
         }
     }];

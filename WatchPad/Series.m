@@ -38,6 +38,7 @@ NSString *const SeriesSummaryKey = @"SeriesSummaryKey";
 NSString *const SeriesNetworkKey = @"SeriesNetworkKey";
 NSString *const SeriesUpdatedKey = @"SeriesUpdatedKey";
 NSString *const SeriesCoverUrlKey = @"SeriesCoverUrlKey";
+NSString *const SeriesCoverKey = @"SeriesCoverKey";
 NSString *const SeriesSeasonsKey = @"SeriesSeasonsKey";
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
@@ -50,6 +51,7 @@ NSString *const SeriesSeasonsKey = @"SeriesSeasonsKey";
         _network = [aDecoder decodeObjectForKey:SeriesNetworkKey];
         _updated = [aDecoder decodeObjectForKey:SeriesUpdatedKey];
         _cover_url = [aDecoder decodeObjectForKey:SeriesCoverUrlKey];
+        _cover = [aDecoder decodeObjectForKey:SeriesCoverKey];
         _seasons = [aDecoder decodeObjectForKey:SeriesSeasonsKey];
     }
     return self;
@@ -63,6 +65,7 @@ NSString *const SeriesSeasonsKey = @"SeriesSeasonsKey";
     [aCoder encodeObject:self.network forKey:SeriesNetworkKey];
     [aCoder encodeObject:self.updated forKey:SeriesUpdatedKey];
     [aCoder encodeObject:self.cover_url forKey:SeriesCoverUrlKey];
+    [aCoder encodeObject:self.cover forKey:SeriesCoverKey];
     [aCoder encodeObject:self.seasons forKey:SeriesSeasonsKey];
 }
 
