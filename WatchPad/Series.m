@@ -29,6 +29,7 @@
     return (int) [[self.seasons allKeys] count];
 }
 
+
 #pragma mark - Encoding/Decoding
 
 NSString *const SeriesIdKey = @"SeriesIdKey";

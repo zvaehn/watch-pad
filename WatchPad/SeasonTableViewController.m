@@ -1,20 +1,16 @@
 //
-//  SeasonTableTableViewController.m
+//  SeasonTableViewController.m
 //  WatchPad
 //
 //  Created by Sven Schiffer on 13.1.16.
 //  Copyright © 2016 Sven Schiffer. All rights reserved.
 //
 
-#import "SeasonTableTableViewController.h"
+#import "SeasonTableViewController.h"
+#import "EpisodesTableViewController.h"
+#import "Episode.h"
 
-@interface SeasonTableTableViewController ()
-
-@property (strong, nonatomic) NSArray *seasons;
-
-@end
-
-@implementation SeasonTableTableViewController
+@implementation SeasonTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,8 +20,6 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    self.seasons = @[@"Season 1", @"Season 2", @"Season 3", @"Season 4", @"Season 5"];
 }
 
 
@@ -40,12 +34,28 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *name = self.seasons[indexPath.row];
+    NSArray *sortedKeys = [[self.seasons allKeys] sortedArrayUsingSelector: @selector(compare:)];
+    NSString *season_name = [NSString stringWithFormat:@"Season %@", sortedKeys[indexPath.row]];
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SeasonsTableViewCell" forIndexPath:indexPath];
-    cell.textLabel.text = name;
+    cell.textLabel.text = season_name;
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSArray *sortedKeys = [[self.seasons allKeys] sortedArrayUsingSelector: @selector(compare:)];
+    NSNumber *season_number = [sortedKeys objectAtIndex:indexPath.row];
+    NSString *season_name = [NSString stringWithFormat:@"Season %@", season_number];
+    
+    EpisodesTableViewController *episodesViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EpisodesTableViewController"];
+    episodesViewController.title = season_name;
+    episodesViewController.episodes = [self.seasons objectForKey:season_number] ; // hand off the current season's episodes to the episodes controller
+    
+    [self.navigationController pushViewController:episodesViewController animated:YES];
+    
+    // note: should not be necessary but current iOS 8.0 bug (seed 4) requires it
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 /*

@@ -27,7 +27,7 @@
 		2648C47C1C45137100FF6AA1 /* EpisodesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2648C47B1C45137100FF6AA1 /* EpisodesTableViewController.m */; };
 		2648C4801C45184300FF6AA1 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2648C47F1C45184300FF6AA1 /* TabBarController.m */; };
 		2648C4831C451DD000FF6AA1 /* Series.m in Sources */ = {isa = PBXBuildFile; fileRef = 2648C4821C451DD000FF6AA1 /* Series.m */; };
-		26C80A2F1C46A05C00080C42 /* SeasonTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C80A2E1C46A05C00080C42 /* SeasonTableTableViewController.m */; };
+		26C80A2F1C46A05C00080C42 /* SeasonTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C80A2E1C46A05C00080C42 /* SeasonTableViewController.m */; };
 		4DBDBBA510A84B773B7275B5 /* libPods-WatchPad.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 351A852D9EA4E38718F5DE2F /* libPods-WatchPad.a */; };
 /* End PBXBuildFile section */
 
@@ -69,8 +69,8 @@
 		2648C47F1C45184300FF6AA1 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		2648C4811C451DD000FF6AA1 /* Series.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Series.h; sourceTree = "<group>"; };
 		2648C4821C451DD000FF6AA1 /* Series.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Series.m; sourceTree = "<group>"; };
-		26C80A2D1C46A05C00080C42 /* SeasonTableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeasonTableTableViewController.h; sourceTree = "<group>"; };
-		26C80A2E1C46A05C00080C42 /* SeasonTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeasonTableTableViewController.m; sourceTree = "<group>"; };
+		26C80A2D1C46A05C00080C42 /* SeasonTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeasonTableViewController.h; sourceTree = "<group>"; };
+		26C80A2E1C46A05C00080C42 /* SeasonTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeasonTableViewController.m; sourceTree = "<group>"; };
 		351A852D9EA4E38718F5DE2F /* libPods-WatchPad.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WatchPad.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A694758A1D0A87B2788B3F36 /* Pods-WatchPad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchPad.release.xcconfig"; path = "Pods/Target Support Files/Pods-WatchPad/Pods-WatchPad.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,8 +99,8 @@
 		260940741C4E90D4004A40AF /* Seasons */ = {
 			isa = PBXGroup;
 			children = (
-				26C80A2D1C46A05C00080C42 /* SeasonTableTableViewController.h */,
-				26C80A2E1C46A05C00080C42 /* SeasonTableTableViewController.m */,
+				26C80A2D1C46A05C00080C42 /* SeasonTableViewController.h */,
+				26C80A2E1C46A05C00080C42 /* SeasonTableViewController.m */,
 			);
 			name = Seasons;
 			sourceTree = "<group>";
@@ -341,7 +341,7 @@
 				263613DF1C593EA9001BACB3 /* SeriesManager.m in Sources */,
 				2609406E1C4E8589004A40AF /* SeriesMainTableViewController.m in Sources */,
 				263613D21C55082D001BACB3 /* SeriesResultsTableController.m in Sources */,
-				26C80A2F1C46A05C00080C42 /* SeasonTableTableViewController.m in Sources */,
+				26C80A2F1C46A05C00080C42 /* SeasonTableViewController.m in Sources */,
 				260940781C4E9720004A40AF /* SeriesInterfaceConnection.m in Sources */,
 				2609406B1C4E834C004A40AF /* SeriesBaseTableViewController.m in Sources */,
 				263613CA1C5505E9001BACB3 /* SeriesResultsTableViewController.m in Sources */,

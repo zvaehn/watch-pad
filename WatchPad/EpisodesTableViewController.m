@@ -7,12 +7,10 @@
 //
 
 #import "EpisodesTableViewController.h"
+#import "Episode.h"
 @import Foundation;
 
 @interface EpisodesTableViewController ()
-
-@property (strong, nonatomic) NSMutableArray *episodes;
-@property (strong, nonatomic) NSMutableData* receivedData;
 
 @end
 
@@ -22,20 +20,6 @@
     [super viewDidLoad];
     
     self.clearsSelectionOnViewWillAppear = YES;
-    
-    self.episodes = @[@"Episode 1", @"Episode 2", @"Episode 3", @"Episode 4", @"Episode 5", @"Episode 6", @"Episode 7"];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-{
-    // This method is called when the server has determined that it
-    // has enough information to create the NSURLResponse object.
-    
-    // It can be called multiple times, for example in the case of a
-    // redirect, so each time we reset the data.
-    
-    // receivedData is an instance variable declared elsewhere.
-    [_receivedData setLength:0];
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -54,11 +38,11 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *name = self.episodes[indexPath.row];
+    Episode *episode = [self.episodes objectAtIndex: indexPath.row];
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EpisodesTableViewCell" forIndexPath:indexPath];
     
-    cell.textLabel.text = name;
+    cell.textLabel.text = [NSString stringWithFormat: @"Episode %@: %@", episode.number, episode.title];
     
     return cell;
 }

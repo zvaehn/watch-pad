@@ -215,7 +215,7 @@
         <!--Seasons-->
         <scene sceneID="xDY-J4-aFE">
             <objects>
-                <tableViewController storyboardIdentifier="Seasons" title="Seasons" id="w5f-xD-z2V" customClass="SeasonTableTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SeasonTableViewController" title="Seasons" useStoryboardIdentifierAsRestorationIdentifier="YES" id="w5f-xD-z2V" customClass="SeasonTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="rmM-HB-e3x">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -228,9 +228,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="Fd5-jr-4TR" kind="show" id="Rfh-ww-lkd"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -246,7 +243,7 @@
         <!--Episodes-->
         <scene sceneID="kvH-0V-MgW">
             <objects>
-                <tableViewController title="Episodes" id="Fd5-jr-4TR" customClass="EpisodesTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="EpisodesTableViewController" title="Episodes" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Fd5-jr-4TR" customClass="EpisodesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="iEa-pf-2Mw">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

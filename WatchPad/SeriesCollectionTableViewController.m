@@ -9,6 +9,7 @@
 #import "SeriesCollectionTableViewController.h"
 #import "Series.h"
 #import "SeriesCollectionTableViewCell.h"
+#import "SeasonTableViewController.h"
 
 NSString *const akCellIdentifier = @"seriesCollectionTableCell";
 NSString *const akTableCellNibName = @"SeriesCollectionTableCell";
@@ -53,10 +54,13 @@ NSString *const akTableCellNibName = @"SeriesCollectionTableCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    /*    APLDetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"APLDetailViewController"];
-     detailViewController.product = selectedProduct; // hand off the current product to the detail view controller
-     
-     [self.navigationController pushViewController:detailViewController animated:YES]; */
+    Series *selectedSeries = self.series[indexPath.row];
+    
+    SeasonTableViewController *seasonViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SeasonTableViewController"];
+    seasonViewController.title = selectedSeries.title;
+    seasonViewController.seasons = selectedSeries.seasons; // hand off the current series' episodes to the season controller
+    
+    [self.navigationController pushViewController:seasonViewController animated:YES];
     
     // note: should not be necessary but current iOS 8.0 bug (seed 4) requires it
     [tableView deselectRowAtIndexPath:indexPath animated:NO];

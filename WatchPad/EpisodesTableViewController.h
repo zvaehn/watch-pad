@@ -10,7 +10,7 @@
 
 @interface EpisodesTableViewController : UITableViewController
 
-
+@property (strong, nonatomic) NSMutableArray *episodes;
 
 @end
 
