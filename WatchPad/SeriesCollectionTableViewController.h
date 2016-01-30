@@ -17,7 +17,7 @@ extern NSString *const akCellIdentifier;
 
 @interface SeriesCollectionTableViewController : UITableViewController
 
-@property (nonatomic, strong) NSArray *series;
+@property (nonatomic, strong) NSMutableArray *series;
 @property (nonatomic, strong) SeriesManager *seriesManager;
 
 - (void)configureCell:(SeriesCollectionTableViewCell *)cell forSeries:(Series *)series;
