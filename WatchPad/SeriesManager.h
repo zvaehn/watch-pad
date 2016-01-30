@@ -15,6 +15,8 @@
 
 - (void) addSeries:(Series *)series;
 - (NSMutableArray *) reloadData;
+- (void) commit;
+
 /*- (Series *) seriesWithSeriesId:(NSNumber *)series_id;
 - (bool) removeSeriesWithSeriesId:(NSNumber *)series_id;
 - (void) deleteAllSeries;*/

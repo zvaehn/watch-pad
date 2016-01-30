@@ -8,6 +8,7 @@
 
 #import "EpisodesTableViewController.h"
 #import "Episode.h"
+
 @import Foundation;
 
 @interface EpisodesTableViewController ()
@@ -19,11 +20,42 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.clearsSelectionOnViewWillAppear = YES;
+    self.seriesManager = [[SeriesManager alloc] init];
+    
+    UIBarButtonItem *mark_all_button = [[UIBarButtonItem alloc] init];
+    mark_all_button.title = @"Watched";
+    self.navigationItem.rightBarButtonItem = mark_all_button;
+    
+    [mark_all_button setTarget:self];
+    [mark_all_button setAction:@selector(markAllasWatched)];
+    //self.clearsSelectionOnViewWillAppear = YES;
 }
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"selected row at index: %@", indexPath);
+- (void)markAllasWatched {
+    for (int i = 0; i < [self.episodes count]; i++) {
+        [[self.episodes objectAtIndex:i] setWatched:YES];
+    }
+    
+//    [self.tableView reloadData];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Episode *episode = [self.episodes objectAtIndex: indexPath.row];
+    episode.watched = !episode.watched;
+    
+    // put this into an async task! so it wont block the UI thread
+    [self.seriesManager commit];
+
+    if(episode.watched) {
+        [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    else {
+        [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
+    }
+    
+    // note: should not be necessary but current iOS 8.0 bug (seed 4) requires it
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 
@@ -40,9 +72,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     Episode *episode = [self.episodes objectAtIndex: indexPath.row];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EpisodesTableViewCell" forIndexPath:indexPath];
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EpisodesTableViewCell" forIndexPath:indexPath]; 
     cell.textLabel.text = [NSString stringWithFormat: @"Episode %@: %@", episode.number, episode.title];
+    
+    if(episode.watched) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     
     return cell;
 }

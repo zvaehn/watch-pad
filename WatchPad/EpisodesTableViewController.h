@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SeriesManager.h"
 
 @interface EpisodesTableViewController : UITableViewController
 
 @property (strong, nonatomic) NSMutableArray *episodes;
+@property (nonatomic, strong) SeriesManager *seriesManager;
 
 @end
 

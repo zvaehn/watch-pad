@@ -28,10 +28,6 @@ NSString *const akTableCellNibName = @"SeriesCollectionTableCell";
 - (void) viewWillAppear:(BOOL)animated {
     // Reload the series
     self.series = [self.seriesManager reloadData];
-    
-    Series *tmp = self.series[0];
-    NSLog(@"number of seasons for %@: %d", tmp.title, [tmp seasonsCount]);
-    
     [self.tableView reloadData];
 }
 

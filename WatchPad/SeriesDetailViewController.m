@@ -122,8 +122,6 @@
                     NSMutableArray *current_season = [seasons objectForKey:season_number];
                     [self.series addSeasonWithEpisodes:season_number episodes:current_season];
                 }
-                
-                NSMutableDictionary *self_series_seasons = self.series.seasons;
             }
         }
     }];

@@ -33,7 +33,11 @@ NSString *const SeriesPreferencesKey = @"SERIES";
 
 - (void)addSeries:(Series *)aSeries {
     [self.seriesArray insertObject:aSeries atIndex:0];
-    
+    [self commit];
+}
+
+// Persists data
+- (void)commit {
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.seriesArray];
     [[NSUserDefaults standardUserDefaults] setObject:data forKey:SeriesPreferencesKey];
 }

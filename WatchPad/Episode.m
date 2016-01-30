@@ -25,6 +25,8 @@ NSString *const EpisodeNumberKey = @"EpisodeNumberKey";
 NSString *const EpisodeTitleKey = @"EpisodeTitleKey";
 NSString *const EpisodeSummaryKey = @"EpisodeSummaryKey";
 NSString *const EpisodeAirdateKey = @"EpisodeAirdateKey";
+NSString *const EpisodeWatchedKey = @"EpisodeWatchedKey";
+NSString *const EpisodeWatchedAtKey = @"EpisodeWatchedAtKey";
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
@@ -35,6 +37,8 @@ NSString *const EpisodeAirdateKey = @"EpisodeAirdateKey";
         _title = [aDecoder decodeObjectForKey:EpisodeTitleKey];
         _summary = [aDecoder decodeObjectForKey:EpisodeSummaryKey];
         _airdate = [aDecoder decodeObjectForKey:EpisodeAirdateKey];
+        _watched = [aDecoder decodeBoolForKey:EpisodeWatchedKey];
+        _watched_at = [aDecoder decodeObjectForKey:EpisodeWatchedAtKey];
     }
     return self;
 }
@@ -46,6 +50,8 @@ NSString *const EpisodeAirdateKey = @"EpisodeAirdateKey";
     [aCoder encodeObject:self.title forKey:EpisodeTitleKey];
     [aCoder encodeObject:self.summary forKey:EpisodeSummaryKey];
     [aCoder encodeObject:self.airdate forKey:EpisodeAirdateKey];
+    [aCoder encodeBool:self.watched forKey:EpisodeWatchedKey];
+    [aCoder encodeObject:self.watched_at forKey:EpisodeWatchedAtKey];
 }
 
 
