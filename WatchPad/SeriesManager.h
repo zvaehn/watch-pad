@@ -14,8 +14,9 @@
 @property (retain) NSMutableArray *seriesArray;
 
 - (void) addSeries:(Series *)series;
-- (NSMutableArray *) reloadData;
 - (void) commit;
+- (void) updateData:(NSMutableArray *)seriesArray;
+- (NSMutableArray *) loadData;
 
 /*- (Series *) seriesWithSeriesId:(NSNumber *)series_id;
 - (bool) removeSeriesWithSeriesId:(NSNumber *)series_id;

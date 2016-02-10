@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.seriesManager = [[SeriesManager alloc] init];
+    self.seriesManager = [[SeriesManager alloc] init];g
     
     UIBarButtonItem *mark_all_button = [[UIBarButtonItem alloc] init];
     mark_all_button.title = @"Watched";
@@ -36,13 +36,14 @@
         [[self.episodes objectAtIndex:i] setWatched:YES];
     }
     
-//    [self.tableView reloadData];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Episode *episode = [self.episodes objectAtIndex: indexPath.row];
     episode.watched = !episode.watched;
+    
+    NSLog(@"%@", self.seriesManager.seriesArray);
     
     // put this into an async task! so it wont block the UI thread
     [self.seriesManager commit];

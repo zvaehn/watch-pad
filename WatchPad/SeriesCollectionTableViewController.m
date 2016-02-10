@@ -23,12 +23,15 @@ NSString *const akTableCellNibName = @"SeriesCollectionTableCell";
     [self.tableView registerNib:[UINib nibWithNibName:akTableCellNibName bundle:nil] forCellReuseIdentifier:akCellIdentifier];
     
     self.seriesManager = [[SeriesManager alloc] init];
+    self.series = [self.seriesManager loadData];
+    
+    [self.tableView reloadData];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     // Reload the series
-    self.series = [self.seriesManager reloadData];
-    [self.tableView reloadData];
+    /*self.series = [self.seriesManager reloadData];
+    [self.tableView reloadData];*/
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

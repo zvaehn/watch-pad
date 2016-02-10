@@ -16,15 +16,16 @@ NSString *const SeriesPreferencesKey = @"SERIES";
     self = [super init];
     
     if (self) {
-        NSData *seriesData = [[NSUserDefaults standardUserDefaults] objectForKey:SeriesPreferencesKey];
-        NSArray *series = [NSKeyedUnarchiver unarchiveObjectWithData:seriesData];
+        /*NSData *seriesData = [[NSUserDefaults standardUserDefaults] objectForKey:SeriesPreferencesKey];
+        NSArray *series = [NSKeyedUnarchiver unarchiveObjectWithData:seriesData];*/
         
-        if(![series count]) {
+/*        if(![series count]) {
             self.seriesArray = [[NSMutableArray alloc] init];
         }
         else {
             self.seriesArray = [NSMutableArray arrayWithArray:series];
-        }
+        }*/
+        //self.seriesArray = [[NSMutableArray alloc] init];
     }
     
     return self;
@@ -41,7 +42,7 @@ NSString *const SeriesPreferencesKey = @"SERIES";
     [[NSUserDefaults standardUserDefaults] setObject:data forKey:SeriesPreferencesKey];
 }
 
-- (NSMutableArray *) reloadData {
+- (NSMutableArray *) loadData {
     NSData *seriesData = [[NSUserDefaults standardUserDefaults] objectForKey:SeriesPreferencesKey];
     NSArray *series = [NSKeyedUnarchiver unarchiveObjectWithData:seriesData];
     
@@ -53,6 +54,11 @@ NSString *const SeriesPreferencesKey = @"SERIES";
     }
     
     return self.seriesArray;
+}
+
+- (void) updateData:(NSMutableArray *)seriesArray {
+    self.seriesArray = seriesArray;
+    [self commit];
 }
 
 @end
