@@ -34,11 +34,13 @@
 @property (nonatomic, readwrite) NSMutableDictionary *seasons;
 
 + (Series *)seriesWithId:(NSNumber *)series_id title:(NSString *)title;
+
 - (void)addSeasonWithEpisodes:(NSNumber *)season_id episodes:(NSMutableArray *)episodes;
-- (int)seasonsCount;
+
+- (int) seasonsCount;
+- (int) episodesCount;
+- (int) episodesWatched;
+
 - (NSMutableArray *)episodesInSeason:(NSNumber *)season_id;
-
-//- (Episode *)seriesWithId:(NSNumber *)series_id title:(NSString *)title;
-
 
 @end

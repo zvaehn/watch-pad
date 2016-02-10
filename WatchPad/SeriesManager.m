@@ -63,4 +63,17 @@ NSString *const SeriesPreferencesKey = @"SERIES";
     [self commit];
 }
 
+- (NSMutableDictionary *) seasonsForSeries:(NSNumber *)series_id {
+    return [[self.seriesArray objectAtIndex: [series_id integerValue]] seasons];
+}
+
+- (NSMutableArray *) episodesForSeries:(NSNumber *)series_id inSeason:(NSNumber *)season {
+    NSMutableDictionary *seasons = [self seasonsForSeries:series_id];
+    
+    //NSArray *sortedKeys = [[seasons allKeys] sortedArrayUsingSelector: @selector(compare:)];
+    //    NSNumber *season_number = [sortedKeys objectAtIndex: season];
+    
+    return [seasons objectForKey:season];
+}
+
 @end

@@ -67,9 +67,15 @@ NSString *const akTableCellNibName = @"SeriesCollectionTableCell";
 
 
 - (void)configureCell:(SeriesCollectionTableViewCell *)cell forSeries:(Series *)series {
+    int watched = [series episodesWatched];
+    int total = [series episodesCount];
+    float percentage = (float) watched/total*100;
+    
+    //NSLog(@"%@ episodes: (%d/%d). Thats %f percent!", series.title, [series episodesWatched], [series episodesCount], percentage);
+    
     cell.title_label.text = series.title;
     cell.summary_label.text = series.summary;
-    cell.watch_progress.progress = 0;
+    cell.watch_progress.progress = percentage/100;
     cell.cover_image.image = series.cover;
 }
 

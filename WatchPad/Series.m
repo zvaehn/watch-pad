@@ -17,16 +17,48 @@
     return newSeries;
 }
 
-- (void)addSeasonWithEpisodes:(NSNumber *)season_id episodes:(NSMutableArray *)episodes {
+- (void) addSeasonWithEpisodes:(NSNumber *)season_id episodes:(NSMutableArray *)episodes {
     [self.seasons setObject:episodes forKey:season_id];
 }
 
-- (NSMutableArray *)episodesInSeason:(NSNumber *)season_id {
+- (NSMutableArray *) episodesInSeason:(NSNumber *)season_id {
     return [self.seasons objectForKey:season_id];
 }
 
-- (int)seasonsCount {
+- (int) seasonsCount {
     return (int) [[self.seasons allKeys] count];
+}
+
+- (int) episodesCount {
+    NSArray *season_keys = [self.seasons allKeys];
+    NSMutableArray *season_episodes;
+    int watched = 0;
+    
+    for (int i = 0; i < season_keys.count; i++) {
+        season_episodes = [self.seasons objectForKey:season_keys[i]];
+        watched += season_episodes.count;
+    }
+    
+    return watched;
+
+}
+
+- (int) episodesWatched {
+    NSArray *season_keys = [self.seasons allKeys];
+    NSMutableArray *season_episodes;
+    int watched = 0;
+    
+    for (int i = 0; i < season_keys.count; i++) {
+        season_episodes = [self.seasons objectForKey:season_keys[i]];
+        
+        for (int j = 0; j < season_episodes.count; j++) {
+            if([season_episodes[j] watched]) {
+                watched++;
+            }
+        }
+    }
+
+    return watched;
 }
 
 

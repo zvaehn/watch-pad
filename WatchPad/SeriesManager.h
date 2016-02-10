@@ -18,6 +18,10 @@
 - (void) updateData:(NSMutableArray *)seriesArray;
 - (NSMutableArray *) loadData;
 
+- (NSMutableDictionary *) seasonsForSeries:(NSNumber *)series_id;
+- (NSMutableArray *) episodesForSeries:(NSNumber *)series_id inSeason:(NSNumber *)season;
+
+
 /*- (Series *) seriesWithSeriesId:(NSNumber *)series_id;
 - (bool) removeSeriesWithSeriesId:(NSNumber *)series_id;
 - (void) deleteAllSeries;*/
