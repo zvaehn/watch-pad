@@ -24,12 +24,16 @@ NSString *const akTableCellNibName = @"SeriesCollectionTableCell";
     
     self.seriesManager = [[SeriesManager alloc] init];
     self.series = [self.seriesManager loadData];
-    [self.tableView reloadData];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     // Reload the series
     self.series = [self.seriesManager loadData];
+    
+    [self.series filterUsingPredicate: [NSPredicate predicateWithBlock:^BOOL(Series *series, NSDictionary *bindings) {
+        return ([series episodesWatched] < [series episodesCount]);
+    }]];
+    
     [self.tableView reloadData];
 }
 

@@ -28,6 +28,7 @@
 		2648C4801C45184300FF6AA1 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2648C47F1C45184300FF6AA1 /* TabBarController.m */; };
 		2648C4831C451DD000FF6AA1 /* Series.m in Sources */ = {isa = PBXBuildFile; fileRef = 2648C4821C451DD000FF6AA1 /* Series.m */; };
 		2668A1361C6BB061006D2A21 /* Series.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2668A1351C6BB061006D2A21 /* Series.storyboard */; };
+		2668A1391C6BC9F3006D2A21 /* SeriesArchiveTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2668A1381C6BC9F3006D2A21 /* SeriesArchiveTableViewController.m */; };
 		26C80A2F1C46A05C00080C42 /* SeasonTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C80A2E1C46A05C00080C42 /* SeasonTableViewController.m */; };
 		4DBDBBA510A84B773B7275B5 /* libPods-WatchPad.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 351A852D9EA4E38718F5DE2F /* libPods-WatchPad.a */; };
 /* End PBXBuildFile section */
@@ -71,6 +72,8 @@
 		2648C4811C451DD000FF6AA1 /* Series.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Series.h; sourceTree = "<group>"; };
 		2648C4821C451DD000FF6AA1 /* Series.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Series.m; sourceTree = "<group>"; };
 		2668A1351C6BB061006D2A21 /* Series.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Series.storyboard; sourceTree = "<group>"; };
+		2668A1371C6BC9F3006D2A21 /* SeriesArchiveTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeriesArchiveTableViewController.h; sourceTree = "<group>"; };
+		2668A1381C6BC9F3006D2A21 /* SeriesArchiveTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeriesArchiveTableViewController.m; sourceTree = "<group>"; };
 		26C80A2D1C46A05C00080C42 /* SeasonTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeasonTableViewController.h; sourceTree = "<group>"; };
 		26C80A2E1C46A05C00080C42 /* SeasonTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeasonTableViewController.m; sourceTree = "<group>"; };
 		351A852D9EA4E38718F5DE2F /* libPods-WatchPad.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WatchPad.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +192,8 @@
 				2609406D1C4E8589004A40AF /* SeriesMainTableViewController.m */,
 				2609407C1C4FB091004A40AF /* SeriesCollectionTableViewController.h */,
 				260940791C4FAFC6004A40AF /* SeriesCollectionTableViewController.m */,
+				2668A1371C6BC9F3006D2A21 /* SeriesArchiveTableViewController.h */,
+				2668A1381C6BC9F3006D2A21 /* SeriesArchiveTableViewController.m */,
 				263613CC1C5506BF001BACB3 /* SeriesResultsTableViewController.h */,
 				263613C91C5505E9001BACB3 /* SeriesResultsTableViewController.m */,
 				263613D01C55082D001BACB3 /* SeriesResultsTableController.h */,
@@ -336,6 +341,7 @@
 			files = (
 				263613D91C55161B001BACB3 /* SeriesDetailViewController.m in Sources */,
 				263613E51C5A2607001BACB3 /* Episode.m in Sources */,
+				2668A1391C6BC9F3006D2A21 /* SeriesArchiveTableViewController.m in Sources */,
 				2648C4661C45055B00FF6AA1 /* AppDelegate.m in Sources */,
 				2648C4831C451DD000FF6AA1 /* Series.m in Sources */,
 				2648C4801C45184300FF6AA1 /* TabBarController.m in Sources */,
