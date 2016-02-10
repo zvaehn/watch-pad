@@ -36,6 +36,7 @@
         [[self.episodes objectAtIndex:i] setWatched:YES];
     }
     
+    [self.seriesManager commit];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -43,9 +44,6 @@
     Episode *episode = [self.episodes objectAtIndex: indexPath.row];
     episode.watched = !episode.watched;
     
-    NSLog(@"%@", self.seriesManager.seriesArray);
-    
-    // put this into an async task! so it wont block the UI thread
     [self.seriesManager commit];
 
     if(episode.watched) {
