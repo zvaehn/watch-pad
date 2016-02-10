@@ -16,16 +16,15 @@ NSString *const SeriesPreferencesKey = @"SERIES";
     self = [super init];
     
     if (self) {
-        /*NSData *seriesData = [[NSUserDefaults standardUserDefaults] objectForKey:SeriesPreferencesKey];
-        NSArray *series = [NSKeyedUnarchiver unarchiveObjectWithData:seriesData];*/
+        NSData *seriesData = [[NSUserDefaults standardUserDefaults] objectForKey:SeriesPreferencesKey];
+        NSArray *series = [NSKeyedUnarchiver unarchiveObjectWithData:seriesData];
         
-/*        if(![series count]) {
+        if(![series count]) {
             self.seriesArray = [[NSMutableArray alloc] init];
         }
         else {
             self.seriesArray = [NSMutableArray arrayWithArray:series];
-        }*/
-        //self.seriesArray = [[NSMutableArray alloc] init];
+        }
     }
     
     return self;
@@ -40,6 +39,9 @@ NSString *const SeriesPreferencesKey = @"SERIES";
 - (void)commit {
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.seriesArray];
     [[NSUserDefaults standardUserDefaults] setObject:data forKey:SeriesPreferencesKey];
+    [[NSUserDefaults standardUserDefaults] synchronize]; // may be a lag of performance
+    
+    NSLog(@"series commit.");
 }
 
 - (NSMutableArray *) loadData {

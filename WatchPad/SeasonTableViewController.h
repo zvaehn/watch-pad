@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SeriesManager.h"
 
 @interface SeasonTableViewController : UITableViewController
 
+@property (nonatomic, strong) SeriesManager *seriesManager;
 @property (strong, nonatomic) NSMutableDictionary *seasons;
 
 @end

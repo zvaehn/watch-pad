@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.seriesManager = [[SeriesManager alloc] init];g
+    //self.seriesManager = [[SeriesManager alloc] init];
     
     UIBarButtonItem *mark_all_button = [[UIBarButtonItem alloc] init];
     mark_all_button.title = @"Watched";

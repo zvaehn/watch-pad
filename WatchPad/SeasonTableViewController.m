@@ -48,6 +48,7 @@
     EpisodesTableViewController *episodesViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EpisodesTableViewController"];
     episodesViewController.title = season_name;
     episodesViewController.episodes = [self.seasons objectForKey:season_number] ; // hand off the current season's episodes to the episodes controller
+    episodesViewController.seriesManager = self.seriesManager;
     
     [self.navigationController pushViewController:episodesViewController animated:YES];
     

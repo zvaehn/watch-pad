@@ -24,14 +24,13 @@ NSString *const akTableCellNibName = @"SeriesCollectionTableCell";
     
     self.seriesManager = [[SeriesManager alloc] init];
     self.series = [self.seriesManager loadData];
-    
     [self.tableView reloadData];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     // Reload the series
-    /*self.series = [self.seriesManager reloadData];
-    [self.tableView reloadData];*/
+    self.series = [self.seriesManager loadData];
+    [self.tableView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -58,6 +57,7 @@ NSString *const akTableCellNibName = @"SeriesCollectionTableCell";
     SeasonTableViewController *seasonViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SeasonTableViewController"];
     seasonViewController.title = selectedSeries.title;
     seasonViewController.seasons = selectedSeries.seasons; // hand off the current series' episodes to the season controller
+    seasonViewController.seriesManager = self.seriesManager;
     
     [self.navigationController pushViewController:seasonViewController animated:YES];
     
