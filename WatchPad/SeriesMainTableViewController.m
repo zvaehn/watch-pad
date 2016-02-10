@@ -42,6 +42,8 @@
     [self.searchController.searchBar sizeToFit];
     self.tableView.tableHeaderView = self.searchController.searchBar;
     
+    self.tableView.tableFooterView = [[[NSBundle mainBundle] loadNibNamed:@"SeriesResultsPlaceholder" owner:self options:nil] objectAtIndex:0];
+    
     // we want to be the delegate for our filtered table so didSelectRowAtIndexPath is called for both tables
     self.resultsTableController.tableView.delegate = self;
     self.searchController.delegate = self;

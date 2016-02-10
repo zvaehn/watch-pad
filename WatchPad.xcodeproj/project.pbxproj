@@ -29,6 +29,7 @@
 		2648C4831C451DD000FF6AA1 /* Series.m in Sources */ = {isa = PBXBuildFile; fileRef = 2648C4821C451DD000FF6AA1 /* Series.m */; };
 		2668A1361C6BB061006D2A21 /* Series.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2668A1351C6BB061006D2A21 /* Series.storyboard */; };
 		2668A1391C6BC9F3006D2A21 /* SeriesArchiveTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2668A1381C6BC9F3006D2A21 /* SeriesArchiveTableViewController.m */; };
+		2668A13B1C6BD07F006D2A21 /* SeriesResultsPlaceholder.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2668A13A1C6BD07F006D2A21 /* SeriesResultsPlaceholder.xib */; };
 		26C80A2F1C46A05C00080C42 /* SeasonTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C80A2E1C46A05C00080C42 /* SeasonTableViewController.m */; };
 		4DBDBBA510A84B773B7275B5 /* libPods-WatchPad.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 351A852D9EA4E38718F5DE2F /* libPods-WatchPad.a */; };
 /* End PBXBuildFile section */
@@ -74,6 +75,7 @@
 		2668A1351C6BB061006D2A21 /* Series.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Series.storyboard; sourceTree = "<group>"; };
 		2668A1371C6BC9F3006D2A21 /* SeriesArchiveTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeriesArchiveTableViewController.h; sourceTree = "<group>"; };
 		2668A1381C6BC9F3006D2A21 /* SeriesArchiveTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeriesArchiveTableViewController.m; sourceTree = "<group>"; };
+		2668A13A1C6BD07F006D2A21 /* SeriesResultsPlaceholder.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeriesResultsPlaceholder.xib; sourceTree = "<group>"; };
 		26C80A2D1C46A05C00080C42 /* SeasonTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeasonTableViewController.h; sourceTree = "<group>"; };
 		26C80A2E1C46A05C00080C42 /* SeasonTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeasonTableViewController.m; sourceTree = "<group>"; };
 		351A852D9EA4E38718F5DE2F /* libPods-WatchPad.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WatchPad.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,6 +175,7 @@
 				2668A1351C6BB061006D2A21 /* Series.storyboard */,
 				260940721C4E8DEE004A40AF /* SeriesResultsTableCell.xib */,
 				2609407D1C4FB126004A40AF /* SeriesCollectionTableCell.xib */,
+				2668A13A1C6BD07F006D2A21 /* SeriesResultsPlaceholder.xib */,
 				2648C4751C45055B00FF6AA1 /* Info.plist */,
 				2648C4621C45055B00FF6AA1 /* main.m */,
 			);
@@ -278,6 +281,7 @@
 				2648C4741C45055B00FF6AA1 /* LaunchScreen.storyboard in Resources */,
 				2668A1361C6BB061006D2A21 /* Series.storyboard in Resources */,
 				263613DC1C5518AA001BACB3 /* Main.storyboard in Resources */,
+				2668A13B1C6BD07F006D2A21 /* SeriesResultsPlaceholder.xib in Resources */,
 				2648C4711C45055B00FF6AA1 /* Assets.xcassets in Resources */,
 				260940731C4E8DEE004A40AF /* SeriesResultsTableCell.xib in Resources */,
 				2609407E1C4FB126004A40AF /* SeriesCollectionTableCell.xib in Resources */,
