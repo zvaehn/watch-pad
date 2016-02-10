@@ -41,11 +41,20 @@
     add_button.style = UIBarButtonItemStyleDone;
     self.navigationItem.rightBarButtonItem = add_button;
     
+    SeriesManager *seriesManager = [[SeriesManager alloc] init];
+    NSArray *seriesCollection = [seriesManager loadData];
+    
+    // Check if Series already exists in collection
+    for (Series *series in seriesCollection) {
+        if(self.series.series_id == series.series_id) {
+            add_button.enabled = NO;
+        }
+    }
+    
     [add_button setTarget:self];
     [add_button setAction:@selector(addSeriesToCollection)];
     
     self.title = self.series.title;
-
     self.title_label.text = self.series.title;
     self.id_label.text = [NSString stringWithFormat:@"%@", self.series.series_id];
     self.network_label.text = self.series.network;
