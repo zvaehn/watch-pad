@@ -133,7 +133,9 @@
     SeriesManager *seriesManager = [[SeriesManager alloc] init];
     [seriesManager addSeries:self.series];
     
-    // ToDo: push SeriesCollectionView
+    SeriesCollectionTableViewController *collectionViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SeriesCollectionTableViewController"];
+    [self.navigationController popToRootViewControllerAnimated:NO];
+    [self.navigationController pushViewController:collectionViewController animated:YES];
 }
 
 - (void)setRightBarButtonItem:(UIBarButtonItem *)rightBarButtonItem {

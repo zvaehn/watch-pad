@@ -110,7 +110,7 @@
         <!--Series-->
         <scene sceneID="FSJ-hj-Uzq">
             <objects>
-                <tableViewController title="Series" id="EPw-Yv-Icw" customClass="SeriesCollectionTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SeriesCollectionTableViewController" title="Series" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EPw-Yv-Icw" customClass="SeriesCollectionTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="28" sectionFooterHeight="28" id="XCe-k1-tey">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -211,7 +211,7 @@
         <scene sceneID="zap-Lm-o9V">
             <objects>
                 <navigationController title="Series Controller" id="aJX-Vq-Ln6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Your Series" image="ondemandVideo" selectedImage="bulletList" id="lRS-qE-4Hc"/>
+                    <tabBarItem key="tabBarItem" title="Your Series" image="bulletList" selectedImage="bulletList" id="lRS-qE-4Hc"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ghu-E0-nON">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -227,6 +227,5 @@
     </scenes>
     <resources>
         <image name="bulletList" width="36" height="36"/>
-        <image name="ondemandVideo" width="36" height="36"/>
     </resources>
 </document>
