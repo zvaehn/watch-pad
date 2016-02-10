@@ -20,14 +20,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //self.seriesManager = [[SeriesManager alloc] init];
-    
     UIBarButtonItem *mark_all_button = [[UIBarButtonItem alloc] init];
-    mark_all_button.title = @"Watched";
-    self.navigationItem.rightBarButtonItem = mark_all_button;
+    //mark_all_button.title = @"Check all";
+    mark_all_button.image = [UIImage imageNamed:@"playlistAddCheck"];
     
+    self.navigationItem.rightBarButtonItem = mark_all_button;
     [mark_all_button setTarget:self];
     [mark_all_button setAction:@selector(markAllasWatched)];
+    
+    [self updateCheckAllButtonStatus];
     //self.clearsSelectionOnViewWillAppear = YES;
 }
 
@@ -55,6 +56,24 @@
     
     // note: should not be necessary but current iOS 8.0 bug (seed 4) requires it
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self updateCheckAllButtonStatus];
+}
+
+- (void) updateCheckAllButtonStatus {
+    int watched = 0;
+    
+    for (int i = 0; i < self.episodes.count; i++) {
+        if([self.episodes[i] watched]) {
+            watched++;
+        }
+    }
+    
+    if(watched == self.episodes.count) {
+        self.navigationItem.rightBarButtonItem.enabled = NO;
+    }
+    else {
+        self.navigationItem.rightBarButtonItem.enabled = YES;
+    }
 }
 
 

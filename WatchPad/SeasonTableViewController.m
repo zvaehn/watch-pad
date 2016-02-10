@@ -55,6 +55,10 @@
     cell.textLabel.text = season_name;
     cell.detailTextLabel.text = [NSString stringWithFormat: @"%d / %d", watched, total];
     
+    if(watched == total) {
+        cell.textLabel.textColor = [UIColor grayColor];
+    }
+    
     return cell;
 }
 

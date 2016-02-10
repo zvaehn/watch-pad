@@ -14,5 +14,7 @@
 @property (strong, nonatomic) NSMutableArray *episodes;
 @property (nonatomic, strong) SeriesManager *seriesManager;
 
+- (void) updateCheckAllButtonStatus;
+
 @end
 
