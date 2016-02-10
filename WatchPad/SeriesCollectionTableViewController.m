@@ -65,7 +65,6 @@ NSString *const akTableCellNibName = @"SeriesCollectionTableCell";
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
-
 - (void)configureCell:(SeriesCollectionTableViewCell *)cell forSeries:(Series *)series {
     int watched = [series episodesWatched];
     int total = [series episodesCount];
@@ -78,7 +77,6 @@ NSString *const akTableCellNibName = @"SeriesCollectionTableCell";
     cell.watch_progress.progress = percentage/100;
     cell.cover_image.image = series.cover;
 }
-
 
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

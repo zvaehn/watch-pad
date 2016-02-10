@@ -19,6 +19,10 @@
     self.clearsSelectionOnViewWillAppear = YES;
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    [self.tableView reloadData];
+}
+
 
 #pragma mark - Table view data source
 
@@ -34,8 +38,22 @@
     NSArray *sortedKeys = [[self.seasons allKeys] sortedArrayUsingSelector: @selector(compare:)];
     NSString *season_name = [NSString stringWithFormat:@"Season %@", sortedKeys[indexPath.row]];
     
+    int watched = 0;
+    int total = 0;
+    
+    NSArray *episodes = [self.seasons objectForKey: sortedKeys[indexPath.row]];
+        
+    for (int j = 0; j < episodes.count; j++) {
+        if([episodes[j] watched]) {
+            watched++;
+        }
+        
+        total++;
+    }
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SeasonsTableViewCell" forIndexPath:indexPath];
     cell.textLabel.text = season_name;
+    cell.detailTextLabel.text = [NSString stringWithFormat: @"%d / %d", watched, total];
     
     return cell;
 }
