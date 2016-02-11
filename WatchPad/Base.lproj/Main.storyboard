@@ -39,7 +39,7 @@
                             <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="featured" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Statistics" image="chart" selectedImage="chart" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -236,4 +236,7 @@
             <point key="canvasLocation" x="2340" y="0.0"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="chart" width="36" height="36"/>
+    </resources>
 </document>

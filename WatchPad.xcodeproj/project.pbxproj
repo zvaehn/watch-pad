@@ -153,6 +153,7 @@
 		2648C4601C45055B00FF6AA1 /* WatchPad */ = {
 			isa = PBXGroup;
 			children = (
+				2668A13C1C6C9F1B006D2A21 /* Statistics */,
 				263613D31C550E61001BACB3 /* ApiConnection */,
 				2648C4641C45055B00FF6AA1 /* AppDelegate.h */,
 				2648C4651C45055B00FF6AA1 /* AppDelegate.m */,
@@ -180,6 +181,13 @@
 				2648C4621C45055B00FF6AA1 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2668A13C1C6C9F1B006D2A21 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Statistics;
 			sourceTree = "<group>";
 		};
 		26C80A291C46896E00080C42 /* Series */ = {

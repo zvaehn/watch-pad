@@ -127,7 +127,7 @@
         <scene sceneID="zap-Lm-o9V">
             <objects>
                 <navigationController title="Series Controller" id="aJX-Vq-Ln6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Your Series" image="bulletList" selectedImage="bulletList" id="lRS-qE-4Hc"/>
+                    <tabBarItem key="tabBarItem" title="Series" image="bulletList" selectedImage="bulletList" id="lRS-qE-4Hc"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ghu-E0-nON">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
