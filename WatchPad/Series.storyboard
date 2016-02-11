@@ -130,7 +130,7 @@
                                     </segue>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Archive" style="plain" id="kCu-kA-bOq">
+                            <barButtonItem enabled="NO" title="Archive" style="plain" id="kCu-kA-bOq">
                                 <connections>
                                     <segue destination="k1A-Ho-7M7" kind="push" id="u51-Zg-3iH"/>
                                 </connections>
