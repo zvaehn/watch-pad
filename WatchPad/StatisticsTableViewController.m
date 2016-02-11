@@ -42,15 +42,15 @@
             break;
             
         case 201: // total runtime
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"~%ld h", self.totalRuntime/60];
+            cell.detailTextLabel.text = [self minutesAsFormatString:self.totalRuntime];
             break;
         
         case 202: // watched time
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"~%lu h", self.totalWatchtime/60];
+            cell.detailTextLabel.text = [self minutesAsFormatString:self.totalWatchtime];
             break;
             
         case 203: // duration this month
-            cell.detailTextLabel.text = @"1";
+            cell.detailTextLabel.text = @"-";
             break;
     }
     
@@ -95,6 +95,28 @@
     self.episodesWatchedCounter = watched;
     self.totalRuntime = runtime;
     self.totalWatchtime = watchtime;
+}
+
+- (NSString *) minutesAsFormatString:(long) minutes {
+    if(minutes < 1) {
+        return @"0 min";
+    }
+    
+    // Display minutes
+    if(minutes < 60) {
+        return [NSString stringWithFormat: @"%ld min", minutes];
+    }
+    // Display hours
+    else if (minutes < 60*24) {
+        return [NSString stringWithFormat: @"%ld h", minutes/60];
+    }
+    // Display days
+    else if(minutes >= (60*24)) {
+        return [NSString stringWithFormat: @"%ld days", minutes/60/24];
+    }
+    else {
+        return [NSString stringWithFormat: @"%ld min", minutes];
+    }
 }
 
 
