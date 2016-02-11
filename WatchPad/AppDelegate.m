@@ -18,20 +18,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    
-    NSArray *series = @[[Series seriesWithId:@84 title:@"Family Guy"],
-                        [Series seriesWithId:@0 title:@"Breaking Bad"]];
-    
-    
+ 
     UINavigationController *navigationController = (UINavigationController *)(self.window).rootViewController;
     // note we want the first view controller (not the visibleViewController) in case
     // we are being store from UIStateRestoration
     //
-    SeriesMainTableViewController *viewController = (SeriesMainTableViewController *)navigationController.viewControllers[0];
-    
-    //viewController.series = series;
-    
+    SeriesMainTableViewController *viewController = (SeriesMainTableViewController *)navigationController.viewControllers[0];    
     return YES;
 }
 

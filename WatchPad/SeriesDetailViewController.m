@@ -142,9 +142,8 @@
     SeriesManager *seriesManager = [[SeriesManager alloc] init];
     [seriesManager addSeries:self.series];
     
-    SeriesCollectionTableViewController *collectionViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SeriesCollectionTableViewController"];
-    [self.navigationController popToRootViewControllerAnimated:NO];
-    [self.navigationController pushViewController:collectionViewController animated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    self.navigationController.tabBarController.selectedIndex = 1;
 }
 
 - (void)setRightBarButtonItem:(UIBarButtonItem *)rightBarButtonItem {
