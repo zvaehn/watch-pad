@@ -35,6 +35,7 @@
 - (void)markAllAsWatched {
     for (int i = 0; i < [self.episodes count]; i++) {
         [[self.episodes objectAtIndex:i] setWatched:YES];
+        [[self.episodes objectAtIndex:i] setWatched_at:[NSDate date]];
     }
     
     [self.seriesManager commit];
