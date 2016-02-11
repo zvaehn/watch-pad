@@ -30,6 +30,7 @@
 		2668A1361C6BB061006D2A21 /* Series.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2668A1351C6BB061006D2A21 /* Series.storyboard */; };
 		2668A1391C6BC9F3006D2A21 /* SeriesArchiveTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2668A1381C6BC9F3006D2A21 /* SeriesArchiveTableViewController.m */; };
 		2668A13B1C6BD07F006D2A21 /* SeriesResultsPlaceholder.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2668A13A1C6BD07F006D2A21 /* SeriesResultsPlaceholder.xib */; };
+		2668A13F1C6CA560006D2A21 /* StatisticsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2668A13E1C6CA560006D2A21 /* StatisticsTableViewController.m */; };
 		26C80A2F1C46A05C00080C42 /* SeasonTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C80A2E1C46A05C00080C42 /* SeasonTableViewController.m */; };
 		4DBDBBA510A84B773B7275B5 /* libPods-WatchPad.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 351A852D9EA4E38718F5DE2F /* libPods-WatchPad.a */; };
 /* End PBXBuildFile section */
@@ -76,6 +77,8 @@
 		2668A1371C6BC9F3006D2A21 /* SeriesArchiveTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeriesArchiveTableViewController.h; sourceTree = "<group>"; };
 		2668A1381C6BC9F3006D2A21 /* SeriesArchiveTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeriesArchiveTableViewController.m; sourceTree = "<group>"; };
 		2668A13A1C6BD07F006D2A21 /* SeriesResultsPlaceholder.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeriesResultsPlaceholder.xib; sourceTree = "<group>"; };
+		2668A13D1C6CA560006D2A21 /* StatisticsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsTableViewController.h; sourceTree = "<group>"; };
+		2668A13E1C6CA560006D2A21 /* StatisticsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsTableViewController.m; sourceTree = "<group>"; };
 		26C80A2D1C46A05C00080C42 /* SeasonTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeasonTableViewController.h; sourceTree = "<group>"; };
 		26C80A2E1C46A05C00080C42 /* SeasonTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeasonTableViewController.m; sourceTree = "<group>"; };
 		351A852D9EA4E38718F5DE2F /* libPods-WatchPad.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WatchPad.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,15 +156,15 @@
 		2648C4601C45055B00FF6AA1 /* WatchPad */ = {
 			isa = PBXGroup;
 			children = (
-				2668A13C1C6C9F1B006D2A21 /* Statistics */,
-				263613D31C550E61001BACB3 /* ApiConnection */,
 				2648C4641C45055B00FF6AA1 /* AppDelegate.h */,
 				2648C4651C45055B00FF6AA1 /* AppDelegate.m */,
 				2648C47E1C45184300FF6AA1 /* TabBarController.h */,
 				2648C47F1C45184300FF6AA1 /* TabBarController.m */,
+				2668A13C1C6C9F1B006D2A21 /* Statistics */,
 				26C80A291C46896E00080C42 /* Series */,
 				260940741C4E90D4004A40AF /* Seasons */,
 				260940751C4E90E0004A40AF /* Episodes */,
+				263613D31C550E61001BACB3 /* ApiConnection */,
 				2648C4611C45055B00FF6AA1 /* Supporting Files */,
 			);
 			path = WatchPad;
@@ -186,6 +189,8 @@
 		2668A13C1C6C9F1B006D2A21 /* Statistics */ = {
 			isa = PBXGroup;
 			children = (
+				2668A13D1C6CA560006D2A21 /* StatisticsTableViewController.h */,
+				2668A13E1C6CA560006D2A21 /* StatisticsTableViewController.m */,
 			);
 			name = Statistics;
 			sourceTree = "<group>";
@@ -363,6 +368,7 @@
 				263613DF1C593EA9001BACB3 /* SeriesManager.m in Sources */,
 				2609406E1C4E8589004A40AF /* SeriesMainTableViewController.m in Sources */,
 				263613D21C55082D001BACB3 /* SeriesResultsTableController.m in Sources */,
+				2668A13F1C6CA560006D2A21 /* StatisticsTableViewController.m in Sources */,
 				26C80A2F1C46A05C00080C42 /* SeasonTableViewController.m in Sources */,
 				260940781C4E9720004A40AF /* SeriesInterfaceConnection.m in Sources */,
 				2609406B1C4E834C004A40AF /* SeriesBaseTableViewController.m in Sources */,

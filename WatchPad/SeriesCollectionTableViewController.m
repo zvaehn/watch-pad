@@ -30,9 +30,10 @@ NSString *const akTableCellNibName = @"SeriesCollectionTableCell";
     // Reload the series
     self.series = [self.seriesManager loadData];
     
-    [self.series filterUsingPredicate: [NSPredicate predicateWithBlock:^BOOL(Series *series, NSDictionary *bindings) {
+    // hide completed series
+    /*[self.series filterUsingPredicate: [NSPredicate predicateWithBlock:^BOOL(Series *series, NSDictionary *bindings) {
         return ([series episodesWatched] < [series episodesCount]);
-    }]];
+    }]];*/
     
     [self.tableView reloadData];
 }
