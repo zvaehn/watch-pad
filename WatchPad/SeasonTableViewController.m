@@ -58,6 +58,9 @@
     if(watched == total) {
         cell.textLabel.textColor = [UIColor grayColor];
     }
+    else {
+        cell.textLabel.textColor = [UIColor blackColor];
+    }
     
     return cell;
 }

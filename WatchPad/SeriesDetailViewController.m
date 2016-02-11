@@ -78,8 +78,6 @@
             NSLog(@"Error: %@", error);
         }
         else {
-            NSDictionary *responseCode = responseObject;
-            
             if([responseObject valueForKey:@"status"] == nil) {
                 NSLog(@"an error occured: %@", [responseObject valueForKey:@"message"]);
             }
@@ -94,6 +92,9 @@
                     NSNumber *number = [episode objectForKey:@"number"];
                     NSString *title = [episode objectForKey:@"name"];
                     NSString *summary = [episode objectForKey:@"summary"];
+                    NSNumber *runtime = [episode objectForKey:@"runtime"];
+                    
+                    runtime = ([runtime intValue] > 0) ? runtime : 0;
                         
                     // Remove HTML Tags
                     NSRange range;
@@ -106,9 +107,10 @@
                     currentEpisode.season = season;
                     currentEpisode.number = number;
                     currentEpisode.summary = summary_string;
+                    currentEpisode.runtime = runtime;
                     
+                    // Check if the season already exists in our dictionary
                     if ([seasons objectForKey:season] == nil) {
-                        //NSLog(@"season %@ #1 time", season);
                         // Array to store all episodes for one season
                         NSMutableArray *episodesForSeason = [[NSMutableArray alloc] init];
                         [episodesForSeason addObject:currentEpisode];
@@ -117,7 +119,6 @@
                         [seasons setObject:episodesForSeason forKey:season];
                     }
                     else {
-                        //NSLog(@"season %@ already exists", season);
                         NSMutableArray *currentSeason = [seasons objectForKey:currentEpisode.season];
                         [currentSeason addObject:currentEpisode];
                     }
@@ -125,9 +126,6 @@
                 
                 // Add seasons (and it's episodes to the current series)
                 for(NSNumber *season_number in seasons) {
-                    //unsigned long episode_count = [[seasons objectForKey:season_number] count];
-                    //NSLog(@"season: %@ has %lu episodes", season_number, episode_count);
-            
                     NSMutableArray *current_season = [seasons objectForKey:season_number];
                     [self.series addSeasonWithEpisodes:season_number episodes:current_season];
                 }

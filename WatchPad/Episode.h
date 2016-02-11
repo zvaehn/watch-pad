@@ -14,6 +14,7 @@
     NSNumber *number;
     NSString *title;
     NSString *summary;
+    NSNumber *runtime;
     NSString *airdate;
     BOOL watched;
     NSDate *watched_at;
@@ -24,6 +25,7 @@
 @property (nonatomic, copy) NSNumber *number;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *summary;
+@property (nonatomic, copy) NSNumber *runtime;
 @property (nonatomic, copy) NSString *airdate;
 @property (nonatomic, readwrite) BOOL watched;
 @property (nonatomic, copy) NSDate *watched_at;

@@ -26,13 +26,13 @@
     
     self.navigationItem.rightBarButtonItem = mark_all_button;
     [mark_all_button setTarget:self];
-    [mark_all_button setAction:@selector(markAllasWatched)];
+    [mark_all_button setAction:@selector(markAllAsWatched)];
     
     [self updateCheckAllButtonStatus];
     //self.clearsSelectionOnViewWillAppear = YES;
 }
 
-- (void)markAllasWatched {
+- (void)markAllAsWatched {
     for (int i = 0; i < [self.episodes count]; i++) {
         [[self.episodes objectAtIndex:i] setWatched:YES];
     }
@@ -44,8 +44,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Episode *episode = [self.episodes objectAtIndex: indexPath.row];
     episode.watched = !episode.watched;
-    
-    [self.seriesManager commit];
+    episode.watched_at = [NSDate date];
 
     if(episode.watched) {
         [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
@@ -54,9 +53,11 @@
         [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
     }
     
+    [self updateCheckAllButtonStatus];
+    [self.seriesManager commit];
+    
     // note: should not be necessary but current iOS 8.0 bug (seed 4) requires it
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self updateCheckAllButtonStatus];
 }
 
 - (void) updateCheckAllButtonStatus {
