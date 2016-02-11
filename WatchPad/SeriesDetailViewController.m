@@ -141,7 +141,7 @@
     [seriesManager addSeries:self.series];
     
     [self.navigationController popToRootViewControllerAnimated:YES];
-    self.navigationController.tabBarController.selectedIndex = 1;
+    self.navigationController.tabBarController.selectedIndex = 0;
 }
 
 - (void)setRightBarButtonItem:(UIBarButtonItem *)rightBarButtonItem {
