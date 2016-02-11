@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,12 +17,50 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p5K-is-tGg">
+                                <rect key="frame" x="0.0" y="0.0" width="447" height="600"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="WatchPad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rrg-pd-3fc">
+                                        <rect key="frame" x="73" y="260" width="207" height="58"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Track your Series progress" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGo-wS-wrM">
+                                        <rect key="frame" x="81" y="318" width="199" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="cHk-K9-e5q">
+                                        <rect key="frame" x="77" y="116" width="207" height="128"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="WGo-wS-wrM" firstAttribute="centerX" secondItem="p5K-is-tGg" secondAttribute="centerX" id="3hC-GQ-hsk"/>
+                                    <constraint firstItem="rrg-pd-3fc" firstAttribute="centerY" secondItem="p5K-is-tGg" secondAttribute="centerY" id="BDa-0Q-L0Q"/>
+                                    <constraint firstItem="WGo-wS-wrM" firstAttribute="trailing" secondItem="rrg-pd-3fc" secondAttribute="trailing" multiplier="0.9" id="KN6-e8-g6R"/>
+                                    <constraint firstItem="WGo-wS-wrM" firstAttribute="bottom" secondItem="rrg-pd-3fc" secondAttribute="bottom" constant="40" id="Vy7-J0-w0a"/>
+                                    <constraint firstItem="cHk-K9-e5q" firstAttribute="centerX" secondItem="p5K-is-tGg" secondAttribute="centerX" id="XTS-eN-m4Q"/>
+                                    <constraint firstItem="rrg-pd-3fc" firstAttribute="centerX" secondItem="p5K-is-tGg" secondAttribute="centerX" id="Zju-pv-Adj"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="p5K-is-tGg" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="Wnx-FQ-OjB"/>
+                            <constraint firstItem="p5K-is-tGg" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="ba6-qc-0AT"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="53" y="362"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Logo" width="76" height="76"/>
+    </resources>
 </document>
