@@ -50,7 +50,7 @@
             break;
             
         case 203: // duration this month
-            cell.detailTextLabel.text = @"-";
+            cell.detailTextLabel.text = [self minutesAsFormatString:self.totalWatchtime30days];
             break;
     }
     
@@ -62,6 +62,7 @@
     int watched = 0;
     int runtime = 0;
     int watchtime = 0;
+    int timethirtydays = 0;
     
     NSMutableArray *season_episodes;
     NSArray *season_keys;
@@ -81,8 +82,16 @@
             season_episodes = [cur_series.seasons objectForKey:season_keys[i]];
             
             for (int j = 0; j < season_episodes.count; j++) {
+                long tmp_runtime = [[season_episodes[j] runtime] longValue];
+                
                 if([season_episodes[j] watched]) {
-                    watchtime += [[season_episodes[j] runtime] longValue];
+                    watchtime += tmp_runtime;
+                }
+                
+                NSTimeInterval difference = [[season_episodes[j] watched_at] timeIntervalSinceDate:[NSDate date]];
+                
+                if((difference) && difference < 60*60*30*24) { // 30 days
+                    timethirtydays += tmp_runtime;
                 }
                 
                 runtime += [[season_episodes[j] runtime] longValue];
@@ -95,6 +104,7 @@
     self.episodesWatchedCounter = watched;
     self.totalRuntime = runtime;
     self.totalWatchtime = watchtime;
+    self.totalWatchtime30days = timethirtydays;
 }
 
 - (NSString *) minutesAsFormatString:(long) minutes {

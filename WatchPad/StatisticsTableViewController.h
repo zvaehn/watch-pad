@@ -21,7 +21,7 @@
 
 @property long totalRuntime;
 @property long totalWatchtime;
-@property long totalWatchtimeMonthly;
+@property long totalWatchtime30days;
 
 - (NSString *) minutesAsFormatString:(long) minutes;
 
