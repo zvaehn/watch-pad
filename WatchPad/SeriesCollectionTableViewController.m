@@ -24,6 +24,8 @@ NSString *const akTableCellNibName = @"SeriesCollectionTableCell";
     
     self.seriesManager = [[SeriesManager alloc] init];
     self.series = [self.seriesManager loadData];
+    
+    NSLog(@"number of seasons in collection: %lu", self.series.count);
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -43,16 +45,29 @@ NSString *const akTableCellNibName = @"SeriesCollectionTableCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 115;
+    Series *series = self.series[indexPath.row];
+    
+    if([series episodesWatched] == [series episodesCount]) {
+        return 0.0f;
+    }
+    else {
+        return 115.0f;
+    }
 }
 
 - (SeriesCollectionTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     SeriesCollectionTableViewCell *cell = (SeriesCollectionTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:akCellIdentifier];
     
     Series *series = self.series[indexPath.row];
     [self configureCell:cell forSeries:series];
     
+    if([series episodesWatched] == [series episodesCount]) {
+        cell.hidden = YES;
+    }
+    else {
+        cell.hidden = NO;
+    }
+
     return cell;
 }
 

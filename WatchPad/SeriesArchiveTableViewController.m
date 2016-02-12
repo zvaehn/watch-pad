@@ -10,20 +10,31 @@
 
 @implementation SeriesArchiveTableViewController
 
-- (void) viewWillAppear:(BOOL)animated {
-    // Reload the series
-    self.series = [self.seriesManager loadData];
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    Series *series = self.series[indexPath.row];
     
-    [self.series filterUsingPredicate: [NSPredicate predicateWithBlock:^BOOL(Series *series, NSDictionary *bindings) {
-        return ([series episodesWatched] == [series episodesCount]);
-    }]];
-    
-    [self.tableView reloadData];
+    if([series episodesWatched] == [series episodesCount]) {
+        return 115.0f;
+    }
+    else {
+        return 0.0f;
+    }
 }
 
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return NO;
+- (SeriesCollectionTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    SeriesCollectionTableViewCell *cell = (SeriesCollectionTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:akCellIdentifier];
+    
+    Series *series = self.series[indexPath.row];
+    [self configureCell:cell forSeries:series];
+    
+    if([series episodesWatched] == [series episodesCount]) {
+        cell.hidden = NO;
+    }
+    else {
+        cell.hidden = YES;
+    }
+    
+    return cell;
 }
 
 @end

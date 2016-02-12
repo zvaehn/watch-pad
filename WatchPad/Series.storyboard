@@ -22,7 +22,7 @@
                     <navigationItem key="navigationItem" title="Series" id="RD2-wy-1ew">
                         <rightBarButtonItems>
                             <barButtonItem enabled="NO" systemItem="add" id="v0y-zd-EiA"/>
-                            <barButtonItem enabled="NO" title="Archive" style="plain" id="kCu-kA-bOq">
+                            <barButtonItem title="Archive" style="plain" id="kCu-kA-bOq">
                                 <connections>
                                     <segue destination="k1A-Ho-7M7" kind="push" id="u51-Zg-3iH"/>
                                 </connections>
