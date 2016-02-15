@@ -74,7 +74,9 @@ NSString *const akTableCellNibName = @"SeriesCollectionTableCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Series *selectedSeries = self.series[indexPath.row];
     
-    SeasonTableViewController *seasonViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SeasonTableViewController"];
+    UIStoryboard *seriesSB = [UIStoryboard storyboardWithName:@"Series" bundle:nil];
+    
+    SeasonTableViewController *seasonViewController = [seriesSB instantiateViewControllerWithIdentifier:@"SeasonTableViewController"];
     seasonViewController.title = selectedSeries.title;
     seasonViewController.seasons = selectedSeries.seasons; // hand off the current series' episodes to the season controller
     seasonViewController.seriesManager = self.seriesManager;
